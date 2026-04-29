@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026 농생대 체육대회 베팅 이벤트</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --gd:#145a32;--gm:#1e8449;--gl:#27ae60;--gs:#58d68d;
+  --yw:#f1c40f;--or:#e67e22;--rd:#e74c3c;--bl:#2980b9;
+  --bg:#f0faf4;--wh:#fff;
+  --g1:#f7f7f7;--g2:#e8e8e8;--g5:#aaa;--g7:#555;--g9:#222;
+  --sh:0 2px 12px rgba(0,0,0,.07);--shm:0 4px 24px rgba(0,0,0,.10);
+  --r:14px;--rs:8px;
+}
+body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--g9);min-height:100vh}
+
+/* ── Hero ── */
+.hero{background:linear-gradient(145deg,#0d3b22,var(--gd) 40%,#1a6b3a);color:#fff;padding:56px 20px 72px;text-align:center;position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23fff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E");pointer-events:none}
+.hero-badge{display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:50px;padding:5px 18px;font-size:12px;font-weight:600;margin-bottom:18px;position:relative;z-index:1}
+.hero h1{font-size:clamp(24px,6vw,44px);font-weight:900;line-height:1.25;margin-bottom:14px;position:relative;z-index:1}
+.hero h1 em{color:var(--yw);font-style:normal}
+.hero p{font-size:14px;line-height:1.8;opacity:.82;max-width:420px;margin:0 auto 28px;position:relative;z-index:1}
+.hero-cards{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;position:relative;z-index:1}
+.hero-card{background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.22);border-radius:var(--rs);padding:11px 18px;text-align:left;backdrop-filter:blur(8px);min-width:150px}
+.hero-card .lbl{font-size:11px;opacity:.65;margin-bottom:3px}
+.hero-card .val{font-size:13px;font-weight:700}
+
+/* ── Tab nav ── */
+.tab-nav{display:flex;background:var(--wh);border-bottom:2px solid var(--g2);position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.tab-btn{flex:1;padding:16px 10px;border:none;background:none;font-family:'Noto Sans KR',sans-serif;font-size:15px;font-weight:500;color:var(--g5);cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-2px;transition:all .25s;display:flex;align-items:center;justify-content:center;gap:6px}
+.tab-btn.active{color:var(--gm);border-bottom-color:var(--gm);font-weight:700}
+
+/* ── Layout ── */
+.main{max-width:660px;margin:0 auto;padding:28px 14px 70px}
+.panel{display:none}.panel.active{display:block}
+
+/* ── Steps ── */
+.steps{display:flex;align-items:center;margin-bottom:8px}
+.step-dot{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;background:var(--g2);color:var(--g5);flex-shrink:0;transition:all .3s}
+.step-dot.active{background:var(--gm);color:#fff}
+.step-dot.done{background:var(--gs);color:#fff}
+.step-line{flex:1;height:2px;background:var(--g2);transition:background .3s}
+.step-line.done{background:var(--gs)}
+.step-lbs{display:flex;justify-content:space-between;margin-top:5px;margin-bottom:22px;font-size:11px;color:var(--g5)}
+
+/* ── Card ── */
+.card{background:var(--wh);border-radius:var(--r);padding:26px;margin-bottom:18px;box-shadow:var(--sh)}
+.card-title{font-size:18px;font-weight:800;color:var(--gd);margin-bottom:5px}
+.card-desc{font-size:13px;color:var(--g7);line-height:1.65;margin-bottom:20px}
+
+/* ── Notice ── */
+.notice{background:#fffbea;border:1px solid var(--yw);border-radius:var(--rs);padding:14px 18px;margin-bottom:22px}
+.notice-title{font-size:12px;font-weight:700;color:#7d6608;margin-bottom:7px}
+.notice ul{padding-left:16px}
+.notice li{font-size:12px;color:#5d4e08;line-height:1.6;margin-bottom:2px}
+
+/* ── Form ── */
+.fg{margin-bottom:18px}
+.fl{display:block;font-size:13px;font-weight:600;margin-bottom:7px}
+.fl .req{color:var(--rd);margin-left:2px}
+.fi,.fs{width:100%;padding:11px 14px;border:2px solid var(--g2);border-radius:var(--rs);font-family:'Noto Sans KR',sans-serif;font-size:14px;outline:none;transition:border-color .2s;background:var(--wh)}
+.fi:focus,.fs:focus{border-color:var(--gm)}
+.fs{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23aaa'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px}
+.fe{font-size:11px;color:var(--rd);margin-top:4px;display:none}
+.fe.on{display:block}
+
+/* ── Questions ── */
+.qb{padding:20px 0;border-bottom:1px solid var(--g2)}
+.qb:last-child{border-bottom:none;padding-bottom:0}
+.qt{font-size:14px;font-weight:700;margin-bottom:5px}
+.qp{display:inline-block;background:var(--gl);color:#fff;font-size:10px;font-weight:700;padding:2px 10px;border-radius:50px;margin-bottom:10px}
+.qn{font-size:12px;color:var(--g5);margin-bottom:10px}
+
+/* ── Options ── */
+.opts{display:grid;gap:7px}
+.opts.two{grid-template-columns:1fr 1fr}
+.oi{position:relative}
+.oi input{position:absolute;opacity:0;width:0;height:0}
+.ol{display:flex;align-items:center;gap:9px;padding:10px 13px;border:2px solid var(--g2);border-radius:var(--rs);cursor:pointer;font-size:13px;font-weight:500;transition:all .18s;user-select:none;line-height:1.35}
+.ol:hover{border-color:var(--gl);background:#f0faf4}
+.oi input:checked+.ol{border-color:var(--gm);background:#e8f8ef;color:var(--gd);font-weight:700}
+.om{width:18px;height:18px;border-radius:50%;border:2px solid var(--g2);flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all .18s;font-size:11px}
+.oi input[type=checkbox]+.ol .om{border-radius:4px}
+.oi input:checked+.ol .om{background:var(--gm);border-color:var(--gm);color:#fff}
+.oi.maxed .ol{opacity:.4;cursor:not-allowed}
+.oi.maxed .ol:hover{border-color:var(--g2);background:#fff}
+.os{font-size:10px;font-weight:400;opacity:.65;display:block}
+
+/* ── Buttons ── */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:13px 26px;border-radius:var(--rs);border:none;font-family:'Noto Sans KR',sans-serif;font-size:14px;font-weight:700;cursor:pointer;transition:all .2s}
+.btn-p{background:var(--gm);color:#fff;width:100%}
+.btn-p:hover{background:var(--gd);transform:translateY(-1px);box-shadow:0 4px 14px rgba(30,132,73,.35)}
+.btn-g{background:var(--g1);color:var(--g7);flex-shrink:0}
+.btn-g:hover{background:var(--g2)}
+.btn-r{background:#fdecea;color:var(--rd)}
+.btn-r:hover{background:#f8c0bb}
+.btn-b{background:#e8f4fd;color:var(--bl)}
+.btn-b:hover{background:#cce5f6}
+.brow{display:flex;gap:10px;margin-top:8px}
+.brow .btn-p{flex:1}
+
+/* ── Closed screen ── */
+.closed-screen{text-align:center;padding:50px 20px}
+.closed-screen .icon{font-size:56px;margin-bottom:16px}
+.closed-screen h2{font-size:20px;font-weight:800;color:var(--g9);margin-bottom:10px}
+.closed-screen p{font-size:14px;color:var(--g7);line-height:1.7}
+
+/* ── Success ── */
+.success{text-align:center;padding:52px 20px 20px}
+.success-icon{font-size:64px;margin-bottom:18px;animation:pop .5s cubic-bezier(.36,.07,.19,.97) both}
+@keyframes pop{0%{transform:scale(0);opacity:0}70%{transform:scale(1.15)}100%{transform:scale(1);opacity:1}}
+.success h2{font-size:22px;font-weight:900;color:var(--gd);margin-bottom:10px}
+.success p{font-size:14px;color:var(--g7);line-height:1.7}
+.success .sub{font-size:12px;color:var(--g5);margin-top:16px}
+
+/* ── Toast ── */
+#toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(80px);background:#1a1a1a;color:#fff;padding:12px 24px;border-radius:50px;font-size:13px;font-weight:500;z-index:9999;transition:transform .3s ease;white-space:nowrap;pointer-events:none}
+#toast.show{transform:translateX(-50%) translateY(0)}
+
+/* ══════════════════════════════
+   ADMIN PANEL
+══════════════════════════════ */
+#admin-wrap{display:none;max-width:800px;margin:0 auto;padding:24px 14px 70px}
+.admin-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;flex-wrap:wrap;gap:10px}
+.admin-header h1{font-size:22px;font-weight:900;color:var(--gd)}
+.admin-header p{font-size:12px;color:var(--g5);margin-top:2px}
+.admin-nav{display:flex;background:var(--wh);border-radius:var(--r);box-shadow:var(--sh);padding:5px;gap:4px;margin-bottom:20px;flex-wrap:wrap}
+.anav-btn{flex:1;min-width:80px;padding:10px 8px;border:none;border-radius:calc(var(--r) - 5px);font-family:'Noto Sans KR',sans-serif;font-size:13px;font-weight:600;cursor:pointer;background:none;color:var(--g7);transition:all .2s;white-space:nowrap;text-align:center}
+.anav-btn.active{background:var(--gm);color:#fff}
+.atab{display:none}.atab.active{display:block}
+
+/* Status cards */
+.status-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:20px}
+.status-card{background:var(--wh);border-radius:var(--r);padding:22px;box-shadow:var(--sh);border:2px solid transparent}
+.status-card.open{border-color:var(--gs)}
+.status-card.closed{border-color:var(--rd)}
+.sc-label{font-size:12px;font-weight:600;color:var(--g5);margin-bottom:6px}
+.sc-name{font-size:16px;font-weight:800;margin-bottom:12px}
+.sc-badge{display:inline-block;padding:4px 14px;border-radius:50px;font-size:12px;font-weight:700;margin-bottom:14px}
+.sc-badge.open{background:#e8f8ef;color:var(--gd)}
+.sc-badge.closed{background:#fdecea;color:var(--rd)}
+.sc-btns{display:flex;gap:8px}
+.sc-btns .btn{padding:9px 16px;font-size:12px;flex:1}
+
+/* Result input tabs */
+.result-tabs{display:flex;gap:8px;margin-bottom:16px}
+.rtab-btn{padding:9px 20px;border-radius:50px;border:2px solid var(--g2);background:none;font-family:'Noto Sans KR',sans-serif;font-size:13px;font-weight:600;cursor:pointer;transition:all .2s;color:var(--g7)}
+.rtab-btn.active{border-color:var(--gm);background:var(--gm);color:#fff}
+.rtab{display:none}.rtab.active{display:block}
+
+/* Ranking table */
+.rank-table{width:100%;border-collapse:collapse;font-size:13px}
+.rank-table th{background:var(--gd);color:#fff;padding:10px 12px;text-align:left;white-space:nowrap}
+.rank-table td{padding:10px 12px;border-bottom:1px solid var(--g2);vertical-align:middle}
+.rank-table tr.top1 td{background:#fffbdf}
+.rank-table tr.top2 td{background:#f5f5f5}
+.rank-table tr.top3 td{background:#fff5f0}
+.rank-medal{font-size:18px}
+.score-chip{display:inline-block;background:var(--g1);border-radius:50px;padding:2px 10px;font-size:12px;font-weight:700}
+.score-total{font-size:16px;font-weight:900;color:var(--gd)}
+
+/* Data table */
+.data-wrap{overflow-x:auto;margin-bottom:24px}
+.data-table{width:100%;border-collapse:collapse;font-size:12px;min-width:600px}
+.data-table th{background:var(--gd);color:#fff;padding:8px 10px;text-align:left;white-space:nowrap}
+.data-table td{padding:7px 10px;border-bottom:1px solid var(--g2);white-space:nowrap}
+.data-table tr:nth-child(even) td{background:var(--g1)}
+.data-section-title{font-size:15px;font-weight:700;color:var(--gd);margin:20px 0 10px;display:flex;align-items:center;justify-content:space-between}
+.data-actions{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.data-actions .btn{padding:9px 16px;font-size:12px;width:auto}
+
+/* Info box */
+.info-box{background:#e8f4fd;border:1px solid #aed6f1;border-radius:var(--rs);padding:13px 16px;margin-bottom:16px;font-size:12px;color:#1a5276;line-height:1.6}
+.admin-login{max-width:420px;margin:24px auto}
+.admin-login .btn{width:100%;margin-top:4px}
+.admin-error{display:none;color:var(--rd);font-size:12px;line-height:1.5;margin-top:10px}
+.admin-error.on{display:block}
+
+/* Footer */
+.footer{text-align:center;padding:28px 20px;font-size:12px;color:var(--g5);border-top:1px solid var(--g2)}
+
+@media(max-width:460px){
+  .opts.two{grid-template-columns:1fr}
+  .status-row{grid-template-columns:1fr}
+  .card,.admin-wrap{padding:18px}
+}
+</style>
+</head>
+<body>
+<div id="toast"></div>
+
+<!-- ═══ HERO ═══ -->
+<div class="hero">
+  <div class="hero-badge">🌾 2026 농생대 체육대회</div>
+  <h1>🏆 체육대회<br><em>베팅 이벤트</em></h1>
+  <p>경기 결과를 예측하고 풍성한 상품을 받아가세요!<br>더욱 즐거운 체육대회를 함께 만들어봐요 🎉</p>
+  <div class="hero-cards">
+    <div class="hero-card"><div class="lbl">☀️ 오전 베팅</div><div class="val">5/3 ~ 5/5 10:30</div></div>
+    <div class="hero-card"><div class="lbl">🌇 오후 베팅</div><div class="val">5/5 10:30 ~ 13:30</div></div>
+    <div class="hero-card"><div class="lbl">📣 결과 발표</div><div class="val">점심시간 · 구령대</div></div>
+  </div>
+</div>
+
+<!-- ═══ TAB NAV ═══ -->
+<div class="tab-nav" id="main-tabs">
+  <button class="tab-btn active" onclick="switchTab('morning')" id="tab-morning">☀️ 오전 베팅</button>
+  <button class="tab-btn" onclick="switchTab('afternoon')" id="tab-afternoon">🌇 오후 베팅</button>
+</div>
+
+<!-- ═══ MAIN ═══ -->
+<div class="main" id="main-area">
+
+  <!-- ─── 오전 패널 ─── -->
+  <div class="panel active" id="panel-morning">
+    <!-- 마감 화면 -->
+    <div id="m-closed" style="display:none">
+      <div class="card">
+        <div class="closed-screen">
+          <div class="icon">🔒</div>
+          <h2>오전 베팅이 마감되었습니다</h2>
+          <p>베팅 기간: 5/3(목) ~ 5/5(토) 오전 10:30<br><br>
+          당첨자는 점심시간 중 인스타그램 스토리 및<br>종합운동장 구령대에서 발표됩니다.</p>
+        </div>
+      </div>
+    </div>
+    <!-- 열린 화면 -->
+    <div id="m-open">
+      <div class="steps">
+        <div class="step-dot active" id="md1">1</div>
+        <div class="step-line" id="ml1"></div>
+        <div class="step-dot" id="md2">2</div>
+      </div>
+      <div class="step-lbs"><span>참가자 정보</span><span>경기 예측</span></div>
+
+      <div id="m-s1">
+        <div class="card">
+          <div class="card-title">☀️ 오전 경기 베팅 이벤트</div>
+          <div class="card-desc">경기 결과를 예측해 풍성한 상품을 받아가세요!</div>
+          <div class="notice">
+            <div class="notice-title">🚨 주의사항</div>
+            <ul>
+              <li>1·2·3등은 체육대회 참가자에 한해 선정됩니다.</li>
+              <li>당일 수령하지 않으면 상품이 취소됩니다. (배달의민족 제외)</li>
+              <li>동점 시 추첨으로 당첨자를 선정합니다.</li>
+            </ul>
+          </div>
+          <div class="fg"><label class="fl">이름 <span class="req">*</span></label><input type="text" class="fi" id="m-name" placeholder="이름을 입력해주세요"><div class="fe" id="e-m-name">이름을 입력해주세요.</div></div>
+          <div class="fg"><label class="fl">학번 <span class="req">*</span></label><input type="text" class="fi" id="m-sid" placeholder="ex. 2000-00000"><div class="fe" id="e-m-sid">학번을 입력해주세요.</div></div>
+          <div class="fg"><label class="fl">전화번호 <span class="req">*</span></label><input type="tel" class="fi" id="m-tel" placeholder="ex. 010-1234-5678"><div class="fe" id="e-m-tel">전화번호를 입력해주세요.</div></div>
+          <div class="fg">
+            <label class="fl">학부 <span class="req">*</span></label>
+            <select class="fs" id="m-dept">
+              <option value="">학부를 선택해주세요</option>
+              <option>식물생산과학부</option><option>산림과학부</option><option>식품동물생명공학부</option>
+              <option>응용생물화학부</option><option>조경지역시스템공학부</option><option>바이오시스템소재학부</option>
+              <option>농경제사회학부</option><option>스마트시스템과학과</option>
+            </select>
+            <div class="fe" id="e-m-dept">학부를 선택해주세요.</div>
+          </div>
+          <button class="btn btn-p" onclick="mNext()">다음 단계 →</button>
+        </div>
+      </div>
+
+      <div id="m-s2" style="display:none">
+        <div class="card">
+          <div class="card-title">🏟️ 오전 경기 예측</div>
+          <div class="card-desc">우승할 것 같은 팀을 예측해주세요!</div>
+          <div class="qb"><div class="qt">🏀 농구 상위 3팀</div><span class="qp">각 10점</span><div class="qn">최대 3개 선택 가능 (선택 안 함 = 0점)</div><div class="opts two" id="q-m-bball"></div><div class="fe" id="e-m-bball"></div></div>
+          <div class="qb"><div class="qt">🏀 농구 결승 경기 점수 차</div><span class="qp">10점</span><div class="opts two" id="q-m-bball-gap"></div><div class="fe" id="e-m-bball-gap">선택해주세요.</div></div>
+          <div class="qb"><div class="qt">🏸 좌식 배드민턴 우승팀</div><span class="qp">20점</span><div class="opts two" id="q-m-badminton"></div><div class="fe" id="e-m-badminton">선택해주세요.</div></div>
+          <div class="qb"><div class="qt">🔴 남자 피구 우승팀</div><span class="qp">20점</span><div class="opts two" id="q-m-dodge-m"></div><div class="fe" id="e-m-dodge-m">선택해주세요.</div></div>
+          <div class="qb"><div class="qt">🔵 여자 피구 우승팀</div><span class="qp">20점</span><div class="opts two" id="q-m-dodge-f"></div><div class="fe" id="e-m-dodge-f">선택해주세요.</div></div>
+          <div class="qb"><div class="qt">🎯 접시콘 가져오기 우승팀</div><span class="qp">20점</span><div class="opts two" id="q-m-dishcone"></div><div class="fe" id="e-m-dishcone">선택해주세요.</div></div>
+          <div class="qb"><div class="qt">⚽ 족구 상위 3팀</div><span class="qp">각 10점</span><div class="qn">최대 3개 선택 가능합니다.</div><div class="opts two" id="q-m-jokgu"></div><div class="fe" id="e-m-jokgu">최소 1개 이상 선택해주세요.</div></div>
+          <div class="qb"><div class="qt">⚽ 족구 결승 경기 점수차</div><span class="qp">10점</span><div class="opts two" id="q-m-jokgu-gap"></div><div class="fe" id="e-m-jokgu-gap">선택해주세요.</div></div>
+          <div class="qb"><div class="qt">🏆 오전 경기 점수 1등팀</div><span class="qp">30점</span><div class="opts two" id="q-m-top"></div><div class="fe" id="e-m-top">선택해주세요.</div></div>
+          <div class="brow">
+            <button class="btn btn-g" onclick="mBack()">← 이전</button>
+            <button class="btn btn-p" onclick="mSubmit()">베팅 완료! 🎉</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="m-success" style="display:none">
+        <div class="card">
+          <div class="success">
+            <div class="success-icon">🎊</div>
+            <h2>오전 베팅 완료!</h2>
+            <p>베팅이 성공적으로 제출되었습니다.<br>베팅한 팀을 응원하며 즐거운 체육대회를!</p>
+            <p class="sub">📣 당첨자 발표: 점심시간 인스타그램 스토리 &amp; 구령대</p>
+            <br><br>
+            <button class="btn btn-g" onclick="switchTab('afternoon')" style="margin:0 auto">🌇 오후 베팅도 참여하기</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── 오후 패널 ─── -->
+  <div class="panel" id="panel-afternoon">
+    <div id="a-closed" style="display:none">
+      <div class="card">
+        <div class="closed-screen">
+          <div class="icon">🔒</div>
+          <h2>오후 베팅이 마감되었습니다</h2>
+          <p>베팅 기간: 5/5(토) 오전 10:30 ~ 오후 1:30<br><br>
+          당첨자는 오후 베팅 종료 후 인스타그램 스토리 및<br>종합운동장 구령대에서 발표됩니다.</p>
+        </div>
+      </div>
+    </div>
+    <div id="a-open">
+      <div class="steps">
+        <div class="step-dot active" id="ad1">1</div>
+        <div class="step-line" id="al1"></div>
+        <div class="step-dot" id="ad2">2</div>
+      </div>
+      <div class="step-lbs"><span>참가자 정보</span><span>경기 예측</span></div>
+
+      <div id="a-s1">
+        <div class="card">
+          <div class="card-title">🌇 오후 경기 베팅 이벤트</div>
+          <div class="card-desc">당일 10:30 ~ 13:30까지 참여 가능한 오후 베팅!</div>
+          <div class="notice">
+            <div class="notice-title">🚨 주의사항</div>
+            <ul>
+              <li>1·2·3등은 체육대회 참가자에 한해 선정됩니다.</li>
+              <li>당일 수령하지 않으면 상품이 취소됩니다. (배달의민족 제외)</li>
+              <li>동점 시 추첨으로 당첨자를 선정합니다.</li>
+            </ul>
+          </div>
+          <div class="fg"><label class="fl">이름 <span class="req">*</span></label><input type="text" class="fi" id="a-name" placeholder="이름을 입력해주세요"><div class="fe" id="e-a-name">이름을 입력해주세요.</div></div>
+          <div class="fg"><label class="fl">학번 <span class="req">*</span></label><input type="text" class="fi" id="a-sid" placeholder="ex. 2000-00000"><div class="fe" id="e-a-sid">학번을 입력해주세요.</div></div>
+          <div class="fg"><label class="fl">전화번호 <span class="req">*</span></label><input type="tel" class="fi" id="a-tel" placeholder="ex. 010-1234-5678"><div class="fe" id="e-a-tel">전화번호를 입력해주세요.</div></div>
+          <div class="fg">
+            <label class="fl">학부 <span class="req">*</span></label>
+            <select class="fs" id="a-dept">
+              <option value="">학부를 선택해주세요</option>
+              <option>식물생산과학부</option><option>산림과학부</option><option>식품동물생명공학부</option>
+              <option>응용생물화학부</option><option>조경지역시스템공학부</option><option>바이오시스템소재학부</option>
+              <option>농경제사회학부</option>
+            </select>
+            <div class="fe" id="e-a-dept">학부를 선택해주세요.</div>
+          </div>
+          <button class="btn btn-p" onclick="aNext()">다음 단계 →</button>
+        </div>
+      </div>
+
+      <div id="a-s2" style="display:none">
+        <div class="card">
+          <div class="card-title">🏃 오후 경기 예측</div>
+          <div class="card-desc">우승할 것 같은 팀을 예측해주세요!</div>
+          <div class="qb"><div class="qt">🏃 미션달리기 우승팀</div><span class="qp">20점</span><div class="opts two" id="q-a-mission"></div><div class="fe" id="e-a-mission">선택해주세요.</div></div>
+          <div class="qb"><div class="qt">🦊 꼬리잡기 상위 3팀</div><span class="qp">각 10점</span><div class="qn">최대 3개 선택 가능합니다.</div><div class="opts two" id="q-a-tail"></div><div class="fe" id="e-a-tail">최소 1개 이상 선택해주세요.</div></div>
+          <div class="qb"><div class="qt">💪 줄다리기 상위 3팀</div><span class="qp">각 10점</span><div class="qn">최대 3개 선택 가능합니다.</div><div class="opts two" id="q-a-tug"></div><div class="fe" id="e-a-tug">최소 1개 이상 선택해주세요.</div></div>
+          <div class="qb"><div class="qt">🚀 계주 우승팀</div><span class="qp">30점</span><div class="opts two" id="q-a-relay"></div><div class="fe" id="e-a-relay">선택해주세요.</div></div>
+          <div class="qb"><div class="qt">🏆 최종 우승팀</div><span class="qp">30점</span><div class="opts two" id="q-a-final"></div><div class="fe" id="e-a-final">선택해주세요.</div></div>
+          <div class="brow">
+            <button class="btn btn-g" onclick="aBack()">← 이전</button>
+            <button class="btn btn-p" onclick="aSubmit()">베팅 완료! 🎉</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="a-success" style="display:none">
+        <div class="card">
+          <div class="success">
+            <div class="success-icon">🎊</div>
+            <h2>오후 베팅 완료!</h2>
+            <p>베팅이 성공적으로 제출되었습니다.<br>베팅한 팀을 응원하며 즐거운 체육대회를!</p>
+            <p class="sub">📣 당첨자 발표: 오후 베팅 종료 후 인스타그램 스토리 &amp; 구령대</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /main -->
+
+<!-- ═══════════════════════════════════════
+     ADMIN PANEL  (URL: #admin)
+═══════════════════════════════════════ -->
+<div id="admin-wrap">
+  <div class="admin-header">
+    <div>
+      <h1>🔒 관리자 패널</h1>
+      <p>2026 농생대 체육대회 베팅 이벤트</p>
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn btn-g" id="admin-logout" onclick="adminLogout()" style="display:none">로그아웃</button>
+      <button class="btn btn-g" onclick="location.hash='';location.reload()">← 사이트로 돌아가기</button>
+    </div>
+  </div>
+
+  <div class="card admin-login" id="admin-login" style="display:none">
+    <div class="card-title">관리자 로그인</div>
+    <p class="card-desc">Firebase Authentication에 등록된 관리자 계정으로 로그인하세요.</p>
+    <div class="fg">
+      <label class="fl" for="admin-email">이메일</label>
+      <input class="fi" id="admin-email" type="email" autocomplete="username">
+    </div>
+    <div class="fg">
+      <label class="fl" for="admin-password">비밀번호</label>
+      <input class="fi" id="admin-password" type="password" autocomplete="current-password">
+    </div>
+    <button class="btn btn-p" onclick="adminLogin()">로그인</button>
+    <div class="admin-error" id="admin-error"></div>
+  </div>
+
+  <div id="admin-content" style="display:none">
+  <div class="admin-nav">
+    <button class="anav-btn active" onclick="switchAdmin('status')">🟢 베팅 상태</button>
+    <button class="anav-btn" onclick="switchAdmin('results')">🏆 경기 결과 입력</button>
+    <button class="anav-btn" onclick="switchAdmin('ranking')">📊 점수 &amp; 순위</button>
+    <button class="anav-btn" onclick="switchAdmin('data')">📋 응답 데이터</button>
+  </div>
+
+  <!-- ── 탭1: 베팅 상태 ── -->
+  <div class="atab active" id="at-status">
+    <div class="info-box">
+      💡 <strong>베팅 상태를 관리자가 직접 열기/닫기 할 수 있습니다.</strong><br>
+      설정은 이 기기의 브라우저에 저장됩니다. 구글 시트 URL이 연동된 경우 서버에도 동기화됩니다.
+    </div>
+    <div class="status-row">
+      <div class="status-card" id="sc-morning">
+        <div class="sc-label">오전 베팅</div>
+        <div class="sc-name">☀️ 오전 경기</div>
+        <div class="sc-badge" id="sb-morning">로딩중...</div>
+        <div class="sc-btns">
+          <button class="btn btn-p" onclick="setStatus('morning',true)" style="font-size:12px;padding:9px 12px">🟢 열기</button>
+          <button class="btn btn-r" onclick="setStatus('morning',false)" style="font-size:12px;padding:9px 12px">🔴 닫기</button>
+        </div>
+      </div>
+      <div class="status-card" id="sc-afternoon">
+        <div class="sc-label">오후 베팅</div>
+        <div class="sc-name">🌇 오후 경기</div>
+        <div class="sc-badge" id="sb-afternoon">로딩중...</div>
+        <div class="sc-btns">
+          <button class="btn btn-p" onclick="setStatus('afternoon',true)" style="font-size:12px;padding:9px 12px">🟢 열기</button>
+          <button class="btn btn-r" onclick="setStatus('afternoon',false)" style="font-size:12px;padding:9px 12px">🔴 닫기</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 탭2: 경기 결과 입력 ── -->
+  <div class="atab" id="at-results">
+    <div class="info-box">🏆 실제 경기 결과를 입력하면 아래 '점수 &amp; 순위' 탭에서 자동으로 점수가 계산됩니다.</div>
+    <div class="result-tabs">
+      <button class="rtab-btn active" onclick="switchResult('rm')">☀️ 오전 경기</button>
+      <button class="rtab-btn" onclick="switchResult('ra')">🌇 오후 경기</button>
+    </div>
+
+    <!-- 오전 결과 -->
+    <div class="rtab active" id="rm">
+      <div class="card">
+        <div class="card-title">☀️ 오전 경기 실제 결과</div>
+        <div class="qb"><div class="qt">🏀 농구 상위 3팀 (실제)</div><span class="qp">최대 3개</span><div class="opts two" id="r-m-bball"></div></div>
+        <div class="qb"><div class="qt">🏀 농구 결승 점수차 (실제)</div><div class="opts two" id="r-m-bball-gap"></div></div>
+        <div class="qb"><div class="qt">🏸 좌식 배드민턴 우승팀 (실제)</div><div class="opts two" id="r-m-badminton"></div></div>
+        <div class="qb"><div class="qt">🔴 남자 피구 우승팀 (실제)</div><div class="opts two" id="r-m-dodge-m"></div></div>
+        <div class="qb"><div class="qt">🔵 여자 피구 우승팀 (실제)</div><div class="opts two" id="r-m-dodge-f"></div></div>
+        <div class="qb"><div class="qt">🎯 접시콘 가져오기 우승팀 (실제)</div><div class="opts two" id="r-m-dishcone"></div></div>
+        <div class="qb"><div class="qt">⚽ 족구 상위 3팀 (실제)</div><span class="qp">최대 3개</span><div class="opts two" id="r-m-jokgu"></div></div>
+        <div class="qb"><div class="qt">⚽ 족구 결승 점수차 (실제)</div><div class="opts two" id="r-m-jokgu-gap"></div></div>
+        <div class="qb"><div class="qt">🏆 오전 경기 점수 1등팀 (실제)</div><div class="opts two" id="r-m-top"></div></div>
+        <br>
+        <button class="btn btn-p" onclick="saveResults()">✅ 결과 저장 &amp; 점수 계산</button>
+      </div>
+    </div>
+
+    <!-- 오후 결과 -->
+    <div class="rtab" id="ra">
+      <div class="card">
+        <div class="card-title">🌇 오후 경기 실제 결과</div>
+        <div class="qb"><div class="qt">🏃 미션달리기 우승팀 (실제)</div><div class="opts two" id="r-a-mission"></div></div>
+        <div class="qb"><div class="qt">🦊 꼬리잡기 상위 3팀 (실제)</div><span class="qp">최대 3개</span><div class="opts two" id="r-a-tail"></div></div>
+        <div class="qb"><div class="qt">💪 줄다리기 상위 3팀 (실제)</div><span class="qp">최대 3개</span><div class="opts two" id="r-a-tug"></div></div>
+        <div class="qb"><div class="qt">🚀 계주 우승팀 (실제)</div><div class="opts two" id="r-a-relay"></div></div>
+        <div class="qb"><div class="qt">🏆 최종 우승팀 (실제)</div><div class="opts two" id="r-a-final"></div></div>
+        <br>
+        <button class="btn btn-p" onclick="saveResults()">✅ 결과 저장 &amp; 점수 계산</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 탭3: 순위 ── -->
+  <div class="atab" id="at-ranking">
+    <div class="info-box">📊 경기 결과를 저장하면 자동으로 점수가 계산됩니다. 오전+오후 합산 점수 기준 순위입니다.</div>
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;flex-wrap:wrap;gap:10px">
+      <div style="font-size:14px;font-weight:700;color:var(--gd)">전체 참여자: <span id="rank-count">0</span>명</div>
+      <div style="display:flex;gap:8px">
+        <button class="btn btn-b" onclick="renderRankings()" style="width:auto;padding:9px 18px;font-size:12px">🔄 새로고침</button>
+        <button class="btn btn-g" onclick="exportRankCSV()" style="padding:9px 18px;font-size:12px">⬇ CSV</button>
+      </div>
+    </div>
+    <div style="overflow-x:auto" id="rank-wrap">
+      <p style="color:var(--g5);padding:20px 0">아직 데이터가 없습니다.</p>
+    </div>
+  </div>
+
+  <!-- ── 탭4: 응답 데이터 ── -->
+  <div class="atab" id="at-data">
+    <div class="data-section-title">
+      ☀️ 오전 베팅 응답 (<span id="cnt-m">0</span>건)
+      <div class="data-actions">
+        <button class="btn btn-b" onclick="exportCSV('morning')" style="width:auto;padding:8px 14px;font-size:12px">⬇ CSV</button>
+        <button class="btn btn-r" onclick="clearData('morning')" style="width:auto;padding:8px 14px;font-size:12px">🗑 삭제</button>
+      </div>
+    </div>
+    <div class="data-wrap"><table class="data-table" id="tbl-m"></table></div>
+    <div class="data-section-title">
+      🌇 오후 베팅 응답 (<span id="cnt-a">0</span>건)
+      <div class="data-actions">
+        <button class="btn btn-b" onclick="exportCSV('afternoon')" style="width:auto;padding:8px 14px;font-size:12px">⬇ CSV</button>
+        <button class="btn btn-r" onclick="clearData('afternoon')" style="width:auto;padding:8px 14px;font-size:12px">🗑 삭제</button>
+      </div>
+    </div>
+    <div class="data-wrap"><table class="data-table" id="tbl-a"></table></div>
+  </div>
+  </div>
+
+</div><!-- /admin-wrap -->
+
+<div class="footer">
+  문의: 홍보팀장 정승연 (010-3099-1760)<br>
+  <span style="font-size:10px;opacity:.5;display:block;margin-top:3px">2026 농생대 체육대회 베팅 이벤트</span>
+</div>
+
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-database-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+
+<script>
+/* =========================================================
+   🔥 Firebase 설정
+   Firebase Console > 프로젝트 설정 > 일반 > 내 앱 > SDK 설정에서
+   apiKey, appId, messagingSenderId 값을 복사해 추가하면 됩니다.
+========================================================= */
+firebase.initializeApp({
+  apiKey: "AIzaSyCP1D3J5NuZPfZZXxyVBed4nnH4igu1Q20",
+  databaseURL: "https://calssports-f7f73-default-rtdb.firebaseio.com",
+  authDomain: "calssports-f7f73.firebaseapp.com",
+  projectId: "calssports-f7f73",
+  storageBucket: "calssports-f7f73.firebasestorage.app",
+  messagingSenderId: "283486633422",
+  appId: "1:283486633422:web:ecb1f67b1faf7cefbabf9f",
+  measurementId: "G-9K92DPEQDW",
+});
+const db = firebase.database();
+const auth = firebase.auth();
+
+// 관리자 이메일을 제한하려면 아래 배열에 허용 이메일을 넣으세요.
+// 비워두면 Firebase DB rules의 /admins/{uid}: true 권한으로 최종 제한합니다.
+const ADMIN_EMAILS = [];
+let adminLoaded = false;
+
+/* =========================================================
+   상수
+========================================================= */
+const CLASSES = [
+  {v:'새싹반',  l:'🌱 새싹반',  s:'농경사, 산과부'},
+  {v:'무지개반',l:'🌈 무지개반',s:'스시과, 식생'},
+  {v:'햇님반',  l:'☀️ 햇님반',  s:'응생화, 조지공'},
+  {v:'병아리반',l:'🐤 병아리반',s:'식동공, 바시소'},
+];
+const D8 = [
+  {v:'식물생산과학부',    l:'식물생산과학부',    s:'식생'},
+  {v:'산림과학부',        l:'산림과학부',        s:'산과부'},
+  {v:'식품동물생명공학부',l:'식품동물생명공학부',s:'식동공'},
+  {v:'응용생물화학부',    l:'응용생물화학부',    s:'응생화'},
+  {v:'조경지역시스템공학부',l:'조경지역시스템공학부',s:'조지공'},
+  {v:'바이오시스템소재학부',l:'바이오시스템소재학부',s:'바시소'},
+  {v:'농경제사회학부',    l:'농경제사회학부',    s:'농경사'},
+  {v:'스마트시스템과학과',l:'스마트시스템과학과',s:'스시과'},
+];
+const D7 = D8.slice(0,7);
+const BBALL_GAP = ['1~5점 차','6~10점 차','11~15점 차','16~20점 차','21점 이상'];
+const JOKGU_GAP = ['0~3점 차','4~7점 차','8~12점 차','13점 이상'];
+
+/* =========================================================
+   상태
+========================================================= */
+let STATUS = {morning:false, afternoon:false};
+let ACTUAL = {};
+
+// 실시간으로 베팅 상태 감시 — 관리자가 닫으면 모든 학생 화면에 즉시 반영
+function initStatusListener(){
+  db.ref('status').on('value', snap => {
+    STATUS = snap.val() || {morning:false, afternoon:false};
+    applyStatus();
+    if($('admin-wrap').style.display !== 'none') renderStatusCards();
+  });
+}
+
+/* =========================================================
+   렌더링 헬퍼
+========================================================= */
+const $=id=>document.getElementById(id);
+
+function mkRadio(cid,items,name){
+  const el=$(cid); if(!el) return;
+  el.innerHTML=items.map((it,i)=>{
+    const v=it.v||it, l=it.l||it, s=it.s?`<span class="os">${it.s}</span>`:'';
+    return `<div class="oi"><input type="radio" name="${name}" id="${name}${i}" value="${v}">
+    <label class="ol" for="${name}${i}"><span class="om">✓</span><span>${l}${s}</span></label></div>`;
+  }).join('');
+}
+function mkCheck(cid,items,name,max=3){
+  const el=$(cid); if(!el) return;
+  el.innerHTML=items.map((it,i)=>{
+    const v=it.v||it, l=it.l||it, s=it.s?`<span class="os">${it.s}</span>`:'';
+    return `<div class="oi" id="${name}_i${i}"><input type="checkbox" name="${name}" id="${name}${i}" value="${v}" onchange="cbChg('${name}',${max})">
+    <label class="ol" for="${name}${i}"><span class="om">✓</span><span>${l}${s}</span></label></div>`;
+  }).join('');
+}
+function cbChg(name,max){
+  const all=[...document.querySelectorAll(`input[name="${name}"]`)];
+  const cnt=all.filter(c=>c.checked).length;
+  all.forEach((c,i)=>{
+    const item=$(name+'_i'+i);
+    if(!c.checked&&cnt>=max){item.classList.add('maxed');c.disabled=true;}
+    else{item.classList.remove('maxed');c.disabled=false;}
+  });
+}
+function getRadio(n){const el=document.querySelector(`input[name="${n}"]:checked`);return el?el.value:'';}
+function getChecked(n){return[...document.querySelectorAll(`input[name="${n}"]:checked`)].map(c=>c.value);}
+
+/* =========================================================
+   질문 초기화
+========================================================= */
+function initQ(){
+  mkCheck('q-m-bball',    D8,       'm_bball',    3);
+  mkRadio('q-m-bball-gap',BBALL_GAP,'m_bball_gap'  );
+  mkRadio('q-m-badminton',CLASSES,  'm_badminton'  );
+  mkRadio('q-m-dodge-m',  CLASSES,  'm_dodge_m'    );
+  mkRadio('q-m-dodge-f',  CLASSES,  'm_dodge_f'    );
+  mkRadio('q-m-dishcone', CLASSES,  'm_dishcone'   );
+  mkCheck('q-m-jokgu',    D8,       'm_jokgu',    3);
+  mkRadio('q-m-jokgu-gap',JOKGU_GAP,'m_jokgu_gap'  );
+  mkRadio('q-m-top',      CLASSES,  'm_top'        );
+  mkRadio('q-a-mission',  CLASSES,  'a_mission'    );
+  mkCheck('q-a-tail',     D7,       'a_tail',     3);
+  mkCheck('q-a-tug',      D7,       'a_tug',      3);
+  mkRadio('q-a-relay',    CLASSES,  'a_relay'      );
+  mkRadio('q-a-final',    CLASSES,  'a_final'      );
+}
+
+/* =========================================================
+   메인 UI 상태 적용
+========================================================= */
+function applyStatus(){
+  ['morning','afternoon'].forEach(t=>{
+    const open = STATUS[t];
+    $(t==='morning'?'m-closed':'a-closed').style.display  = open?'none':'block';
+    $(t==='morning'?'m-open'  :'a-open'  ).style.display  = open?'block':'none';
+  });
+}
+
+/* =========================================================
+   탭 전환
+========================================================= */
+function switchTab(tab){
+  ['morning','afternoon'].forEach(t=>{
+    $(`tab-${t}`).classList.toggle('active',t===tab);
+    $(`panel-${t}`).classList.toggle('active',t===tab);
+  });
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+/* =========================================================
+   토스트
+========================================================= */
+let _tt;
+function toast(msg){
+  const t=$('toast'); t.textContent=msg; t.classList.add('show');
+  clearTimeout(_tt); _tt=setTimeout(()=>t.classList.remove('show'),3000);
+}
+
+/* =========================================================
+   유틸
+========================================================= */
+const fv=id=>$(id).value.trim();
+const fe=(id,on)=>$(id).classList.toggle('on',on);
+
+function stepGo(d1,l1,d2,s1,s2){
+  $(d1).classList.remove('active');$(d1).classList.add('done');$(d1).textContent='✓';
+  $(l1).classList.add('done');$(d2).classList.add('active');
+  $(s1).style.display='none';$(s2).style.display='block';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function stepBack(d1,l1,d2,s1,s2,n){
+  $(d1).classList.add('active');$(d1).classList.remove('done');$(d1).textContent=n;
+  $(l1).classList.remove('done');$(d2).classList.remove('active');
+  $(s2).style.display='none';$(s1).style.display='block';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+/* =========================================================
+   오전 폼
+========================================================= */
+function mNext(){
+  const n=fv('m-name'),s=fv('m-sid'),t=fv('m-tel'),d=fv('m-dept');
+  fe('e-m-name',!n);fe('e-m-sid',!s);fe('e-m-tel',!t);fe('e-m-dept',!d);
+  if(!n||!s||!t||!d) return;
+  stepGo('md1','ml1','md2','m-s1','m-s2');
+}
+function mBack(){stepBack('md1','ml1','md2','m-s1','m-s2','1');}
+
+function mSubmit(){
+  const bball=getChecked('m_bball'), bballGap=getRadio('m_bball_gap');
+  const badminton=getRadio('m_badminton'), dodgeM=getRadio('m_dodge_m'), dodgeF=getRadio('m_dodge_f');
+  const dishcone=getRadio('m_dishcone'), jokgu=getChecked('m_jokgu'), jokguGap=getRadio('m_jokgu_gap');
+  const top=getRadio('m_top');
+  let ok=true;
+  fe('e-m-bball-gap',!bballGap);  if(!bballGap)  ok=false;
+  fe('e-m-badminton',!badminton); if(!badminton) ok=false;
+  fe('e-m-dodge-m',  !dodgeM);   if(!dodgeM)    ok=false;
+  fe('e-m-dodge-f',  !dodgeF);   if(!dodgeF)    ok=false;
+  fe('e-m-dishcone', !dishcone); if(!dishcone)  ok=false;
+  fe('e-m-jokgu',    !jokgu.length); if(!jokgu.length) ok=false;
+  fe('e-m-jokgu-gap',!jokguGap); if(!jokguGap)  ok=false;
+  fe('e-m-top',      !top);       if(!top)        ok=false;
+  if(!ok){toast('⚠️ 모든 항목을 선택해주세요!');document.querySelector('.fe.on')?.scrollIntoView({behavior:'smooth',block:'center'});return;}
+  const data={type:'morning',timestamp:new Date().toLocaleString('ko-KR'),
+    name:fv('m-name'),studentId:fv('m-sid'),phone:fv('m-tel'),dept:fv('m-dept'),
+    농구_상위3팀:bball.join(', ')||'(선택안함)',농구_결승점수차:bballGap,
+    좌식배드민턴_우승:badminton,남자피구_우승:dodgeM,여자피구_우승:dodgeF,접시콘_우승:dishcone,
+    족구_상위3팀:jokgu.join(', '),족구_결승점수차:jokguGap,오전경기_1등팀:top};
+  db.ref('morning').push(data)
+    .then(()=>{ $('m-s2').style.display='none'; $('m-success').style.display='block'; window.scrollTo({top:0,behavior:'smooth'}); })
+    .catch(()=>toast('⚠️ 저장 실패. 인터넷 연결을 확인해주세요.'));
+}
+
+/* =========================================================
+   오후 폼
+========================================================= */
+function aNext(){
+  const n=fv('a-name'),s=fv('a-sid'),t=fv('a-tel'),d=fv('a-dept');
+  fe('e-a-name',!n);fe('e-a-sid',!s);fe('e-a-tel',!t);fe('e-a-dept',!d);
+  if(!n||!s||!t||!d) return;
+  stepGo('ad1','al1','ad2','a-s1','a-s2');
+}
+function aBack(){stepBack('ad1','al1','ad2','a-s1','a-s2','1');}
+
+function aSubmit(){
+  const mission=getRadio('a_mission'),tail=getChecked('a_tail'),tug=getChecked('a_tug');
+  const relay=getRadio('a_relay'),final=getRadio('a_final');
+  let ok=true;
+  fe('e-a-mission',!mission);     if(!mission)     ok=false;
+  fe('e-a-tail',   !tail.length); if(!tail.length) ok=false;
+  fe('e-a-tug',    !tug.length);  if(!tug.length)  ok=false;
+  fe('e-a-relay',  !relay);       if(!relay)        ok=false;
+  fe('e-a-final',  !final);       if(!final)        ok=false;
+  if(!ok){toast('⚠️ 모든 항목을 선택해주세요!');document.querySelector('.fe.on')?.scrollIntoView({behavior:'smooth',block:'center'});return;}
+  const data={type:'afternoon',timestamp:new Date().toLocaleString('ko-KR'),
+    name:fv('a-name'),studentId:fv('a-sid'),phone:fv('a-tel'),dept:fv('a-dept'),
+    미션달리기_우승:mission,꼬리잡기_상위3팀:tail.join(', '),줄다리기_상위3팀:tug.join(', '),
+    계주_우승:relay,최종_우승팀:final};
+  db.ref('afternoon').push(data)
+    .then(()=>{ $('a-s2').style.display='none'; $('a-success').style.display='block'; window.scrollTo({top:0,behavior:'smooth'}); })
+    .catch(()=>toast('⚠️ 저장 실패. 인터넷 연결을 확인해주세요.'));
+}
+
+/* =========================================================
+   ADMIN
+========================================================= */
+function initAdmin(){
+  $('main-tabs').style.display='none';
+  $('main-area').style.display='none';
+  $('admin-wrap').style.display='block';
+  auth.onAuthStateChanged(user=>{
+    if(isAdminUser(user)){
+      showAdminContent();
+      initAdminPanel();
+    }else{
+      showAdminLogin(user?'관리자 권한이 없는 계정입니다.':'');
+      if(user) auth.signOut();
+    }
+  });
+}
+
+function isAdminUser(user){
+  if(!user) return false;
+  return !ADMIN_EMAILS.length || ADMIN_EMAILS.includes(user.email);
+}
+
+function showAdminLogin(msg=''){
+  $('admin-login').style.display='block';
+  $('admin-content').style.display='none';
+  $('admin-logout').style.display='none';
+  const err=$('admin-error');
+  err.textContent=msg;
+  err.classList.toggle('on',!!msg);
+}
+
+function showAdminContent(){
+  $('admin-login').style.display='none';
+  $('admin-content').style.display='block';
+  $('admin-logout').style.display='inline-flex';
+}
+
+function adminLogin(){
+  const email=fv('admin-email'), password=fv('admin-password');
+  const err=$('admin-error');
+  err.classList.remove('on');
+  if(!email||!password){
+    err.textContent='이메일과 비밀번호를 입력해주세요.';
+    err.classList.add('on');
+    return;
+  }
+  auth.signInWithEmailAndPassword(email,password)
+    .catch(e=>{
+      err.textContent='로그인에 실패했습니다. 계정 정보와 Firebase Authentication 설정을 확인해주세요.';
+      err.classList.add('on');
+      console.error(e);
+    });
+}
+
+function adminLogout(){
+  auth.signOut().then(()=>{location.hash='';location.reload();});
+}
+
+function initAdminPanel(){
+  if(adminLoaded){
+    renderStatusCards();
+    renderDataTables();
+    renderRankings();
+    return;
+  }
+  adminLoaded = true;
+  initAdminResultQ();
+  // Firebase에서 결과 로드 후 UI에 반영
+  db.ref('results').once('value').then(snap=>{
+    ACTUAL = snap.val() || {};
+    loadResultsToUI();
+    renderRankings();
+  });
+  renderStatusCards();
+  renderDataTables();
+}
+
+function switchAdmin(tab){
+  document.querySelectorAll('.anav-btn').forEach((b,i)=>{
+    const tabs=['status','results','ranking','data'];
+    b.classList.toggle('active',tabs[i]===tab);
+  });
+  document.querySelectorAll('.atab').forEach(t=>t.classList.remove('active'));
+  $('at-'+tab).classList.add('active');
+}
+
+function switchResult(tab){
+  document.querySelectorAll('.rtab-btn').forEach((b,i)=>b.classList.toggle('active',['rm','ra'][i]===tab));
+  document.querySelectorAll('.rtab').forEach(t=>t.classList.remove('active'));
+  $(tab).classList.add('active');
+}
+
+/* ── 상태 관리 ── */
+function setStatus(type,open){
+  db.ref('status/'+type).set(open);
+  // renderStatusCards & applyStatus는 initStatusListener의 실시간 콜백이 처리
+  toast(open?`✅ ${type==='morning'?'오전':'오후'} 베팅이 열렸습니다`:`🔴 ${type==='morning'?'오전':'오후'} 베팅이 마감되었습니다`);
+}
+
+function renderStatusCards(){
+  ['morning','afternoon'].forEach(t=>{
+    const open=STATUS[t];
+    const card=$('sc-'+t), badge=$('sb-'+t);
+    card.className='status-card '+(open?'open':'closed');
+    badge.className='sc-badge '+(open?'open':'closed');
+    badge.textContent=open?'🟢 베팅 진행 중':'🔴 베팅 마감';
+  });
+}
+
+/* ── 결과 입력 질문 렌더링 ── */
+function initAdminResultQ(){
+  mkCheck('r-m-bball',    D8,       'r_m_bball',    3);
+  mkRadio('r-m-bball-gap',BBALL_GAP,'r_m_bball_gap'  );
+  mkRadio('r-m-badminton',CLASSES,  'r_m_badminton'  );
+  mkRadio('r-m-dodge-m',  CLASSES,  'r_m_dodge_m'    );
+  mkRadio('r-m-dodge-f',  CLASSES,  'r_m_dodge_f'    );
+  mkRadio('r-m-dishcone', CLASSES,  'r_m_dishcone'   );
+  mkCheck('r-m-jokgu',    D8,       'r_m_jokgu',    3);
+  mkRadio('r-m-jokgu-gap',JOKGU_GAP,'r_m_jokgu_gap'  );
+  mkRadio('r-m-top',      CLASSES,  'r_m_top'        );
+  mkRadio('r-a-mission',  CLASSES,  'r_a_mission'    );
+  mkCheck('r-a-tail',     D7,       'r_a_tail',     3);
+  mkCheck('r-a-tug',      D7,       'r_a_tug',      3);
+  mkRadio('r-a-relay',    CLASSES,  'r_a_relay'      );
+  mkRadio('r-a-final',    CLASSES,  'r_a_final'      );
+}
+
+function loadResultsToUI(){
+  if(!ACTUAL||!Object.keys(ACTUAL).length) return;
+  const radios={r_m_bball_gap:ACTUAL.m_bball_gap,r_m_badminton:ACTUAL.m_badminton,
+    r_m_dodge_m:ACTUAL.m_dodge_m,r_m_dodge_f:ACTUAL.m_dodge_f,r_m_dishcone:ACTUAL.m_dishcone,
+    r_m_jokgu_gap:ACTUAL.m_jokgu_gap,r_m_top:ACTUAL.m_top1,
+    r_a_mission:ACTUAL.a_mission,r_a_relay:ACTUAL.a_relay,r_a_final:ACTUAL.a_final};
+  Object.entries(radios).forEach(([n,v])=>{
+    if(!v) return;
+    const el=document.querySelector(`input[name="${n}"][value="${v}"]`);
+    if(el) el.checked=true;
+  });
+  const checks={r_m_bball:ACTUAL.m_bball_top3||[],r_m_jokgu:ACTUAL.m_jokgu_top3||[],
+    r_a_tail:ACTUAL.a_tail_top3||[],r_a_tug:ACTUAL.a_tug_top3||[]};
+  Object.entries(checks).forEach(([n,vals])=>{
+    vals.forEach(v=>{const el=document.querySelector(`input[name="${n}"][value="${v}"]`);if(el)el.checked=true;});
+    cbChg(n,3);
+  });
+}
+
+function saveResults(){
+  ACTUAL={
+    m_bball_top3:  getChecked('r_m_bball'),
+    m_bball_gap:   getRadio('r_m_bball_gap'),
+    m_badminton:   getRadio('r_m_badminton'),
+    m_dodge_m:     getRadio('r_m_dodge_m'),
+    m_dodge_f:     getRadio('r_m_dodge_f'),
+    m_dishcone:    getRadio('r_m_dishcone'),
+    m_jokgu_top3:  getChecked('r_m_jokgu'),
+    m_jokgu_gap:   getRadio('r_m_jokgu_gap'),
+    m_top1:        getRadio('r_m_top'),
+    a_mission:     getRadio('r_a_mission'),
+    a_tail_top3:   getChecked('r_a_tail'),
+    a_tug_top3:    getChecked('r_a_tug'),
+    a_relay:       getRadio('r_a_relay'),
+    a_final:       getRadio('r_a_final'),
+  };
+  db.ref('results').set(ACTUAL).then(()=>{
+    renderRankings();
+    toast('✅ 결과가 저장되었습니다! 순위 탭에서 확인하세요.');
+  }).catch(()=>toast('⚠️ 저장 실패. 인터넷 연결을 확인해주세요.'));
+}
+
+/* ── 점수 계산 ── */
+function calcM(sub){
+  if(!sub) return 0; let s=0;
+  const bball=(sub['농구_상위3팀']||'').split(', ').filter(Boolean);
+  bball.forEach(t=>{if((ACTUAL.m_bball_top3||[]).includes(t)) s+=10;});
+  if(ACTUAL.m_bball_gap  && sub['농구_결승점수차']  ===ACTUAL.m_bball_gap)  s+=10;
+  if(ACTUAL.m_badminton  && sub['좌식배드민턴_우승'] ===ACTUAL.m_badminton)  s+=20;
+  if(ACTUAL.m_dodge_m    && sub['남자피구_우승']     ===ACTUAL.m_dodge_m)    s+=20;
+  if(ACTUAL.m_dodge_f    && sub['여자피구_우승']     ===ACTUAL.m_dodge_f)    s+=20;
+  if(ACTUAL.m_dishcone   && sub['접시콘_우승']       ===ACTUAL.m_dishcone)   s+=20;
+  const jokgu=(sub['족구_상위3팀']||'').split(', ').filter(Boolean);
+  jokgu.forEach(t=>{if((ACTUAL.m_jokgu_top3||[]).includes(t)) s+=10;});
+  if(ACTUAL.m_jokgu_gap  && sub['족구_결승점수차']   ===ACTUAL.m_jokgu_gap)  s+=10;
+  if(ACTUAL.m_top1       && sub['오전경기_1등팀']    ===ACTUAL.m_top1)       s+=30;
+  return s;
+}
+function calcA(sub){
+  if(!sub) return 0; let s=0;
+  if(ACTUAL.a_mission && sub['미션달리기_우승']===ACTUAL.a_mission) s+=20;
+  const tail=(sub['꼬리잡기_상위3팀']||'').split(', ').filter(Boolean);
+  tail.forEach(t=>{if((ACTUAL.a_tail_top3||[]).includes(t)) s+=10;});
+  const tug=(sub['줄다리기_상위3팀']||'').split(', ').filter(Boolean);
+  tug.forEach(t=>{if((ACTUAL.a_tug_top3||[]).includes(t)) s+=10;});
+  if(ACTUAL.a_relay && sub['계주_우승']    ===ACTUAL.a_relay) s+=30;
+  if(ACTUAL.a_final && sub['최종_우승팀'] ===ACTUAL.a_final) s+=30;
+  return s;
+}
+
+/* ── 순위 렌더링 ── */
+function renderRankings(){
+  Promise.all([
+    db.ref('morning').once('value'),
+    db.ref('afternoon').once('value'),
+  ]).then(([mSnap, aSnap])=>{
+    const mList = Object.values(mSnap.val()||{});
+    const aList = Object.values(aSnap.val()||{});
+    _buildRankings(mList, aList);
+  });
+}
+function _buildRankings(mList, aList){
+  const map={};
+  mList.forEach(sub=>{
+    const k=sub.phone||sub.name;
+    if(!map[k]) map[k]={name:sub.name,dept:sub.dept,phone:sub.phone,sid:sub.studentId,m:null,a:null};
+    map[k].m=sub;
+  });
+  aList.forEach(sub=>{
+    const k=sub.phone||sub.name;
+    if(!map[k]) map[k]={name:sub.name,dept:sub.dept,phone:sub.phone,sid:sub.studentId,m:null,a:null};
+    map[k].a=sub;
+  });
+  const hasResult=Object.keys(ACTUAL).length>0;
+  const rows=Object.values(map).map(p=>{
+    const ms=p.m?(hasResult?calcM(p.m):'?'):'-';
+    const as=p.a?(hasResult?calcA(p.a):'?'):'-';
+    const tot=(typeof ms==='number'?ms:0)+(typeof as==='number'?as:0);
+    return{...p,ms,as,tot};
+  }).sort((a,b)=>b.tot-a.tot);
+
+  $('rank-count').textContent=rows.length;
+  const wrap=$('rank-wrap');
+  if(!rows.length){wrap.innerHTML='<p style="color:var(--g5);padding:20px 0">아직 베팅 데이터가 없습니다.</p>';return;}
+
+  const medals=['🥇','🥈','🥉'];
+  wrap.innerHTML=`<table class="rank-table">
+    <thead><tr><th>순위</th><th>이름</th><th>학부</th><th>전화번호</th><th>오전</th><th>오후</th><th>합계</th></tr></thead>
+    <tbody>${rows.map((p,i)=>`<tr class="${i===0?'top1':i===1?'top2':i===2?'top3':''}">
+      <td><span class="rank-medal">${medals[i]||''}</span>${i>=3?` ${i+1}위`:''}</td>
+      <td><strong>${p.name}</strong></td>
+      <td style="font-size:11px">${p.dept||''}</td>
+      <td style="font-size:11px">${p.phone||''}</td>
+      <td><span class="score-chip">${p.ms}${typeof p.ms==='number'?'점':''}</span></td>
+      <td><span class="score-chip">${p.as}${typeof p.as==='number'?'점':''}</span></td>
+      <td><span class="score-total">${p.tot}점</span></td>
+    </tr>`).join('')}</tbody>
+  </table>`;
+} // _buildRankings 끝
+
+/* ── 데이터 테이블 ── */
+function renderDataTables(){
+  ['morning','afternoon'].forEach(type=>{
+    const id=type==='morning'?'m':'a';
+    db.ref(type).once('value').then(snap=>{
+      const list=Object.values(snap.val()||{});
+      $('cnt-'+id).textContent=list.length;
+      const tbl=$('tbl-'+id);
+      if(!list.length){tbl.innerHTML='<tr><td style="padding:12px;color:var(--g5)">아직 응답이 없습니다.</td></tr>';return;}
+      const keys=Object.keys(list[0]).filter(k=>k!=='type');
+      tbl.innerHTML=`<thead><tr>${keys.map(k=>`<th>${k}</th>`).join('')}</tr></thead>
+        <tbody>${list.map(r=>`<tr>${keys.map(k=>`<td>${r[k]??''}</td>`).join('')}</tr>`).join('')}</tbody>`;
+    });
+  });
+}
+
+function exportCSV(type){
+  db.ref(type).once('value').then(snap=>{
+    const list=Object.values(snap.val()||{});
+    if(!list.length){toast('데이터가 없습니다.');return;}
+    const keys=Object.keys(list[0]).filter(k=>k!=='type');
+    const csv=[keys.join(','),...list.map(r=>keys.map(k=>`"${(r[k]??'').toString().replace(/"/g,'""')}"`).join(','))].join('\n');
+    const a=document.createElement('a');
+    a.href=URL.createObjectURL(new Blob(['﻿'+csv],{type:'text/csv;charset=utf-8;'}));
+    a.download=`${type}_${Date.now()}.csv`; a.click();
+  });
+}
+
+function exportRankCSV(){
+  const wrap=$('rank-wrap');
+  const rows=[...wrap.querySelectorAll('tbody tr')];
+  if(!rows.length){toast('순위 데이터가 없습니다.');return;}
+  const headers=['순위','이름','학부','전화번호','오전점수','오후점수','합계'];
+  const csv=[headers.join(','),...rows.map(r=>[...r.querySelectorAll('td')].map(td=>`"${td.textContent.trim()}"`).join(','))].join('\n');
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob(['﻿'+csv],{type:'text/csv;charset=utf-8;'}));
+  a.download=`ranking_${Date.now()}.csv`; a.click();
+}
+
+function clearData(type){
+  if(!confirm(`${type==='morning'?'오전':'오후'} 베팅 데이터를 모두 삭제할까요?\n⚠️ Firebase에서도 영구 삭제됩니다.`)) return;
+  db.ref(type).remove().then(()=>{ renderDataTables(); renderRankings(); toast('삭제 완료'); });
+}
+
+/* =========================================================
+   초기화
+========================================================= */
+initQ();
+initStatusListener(); // Firebase 실시간 상태 감시 시작
+if(location.hash==='#admin') initAdmin();
+</script>
+</body>
+</html>
