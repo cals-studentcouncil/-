@@ -250,8 +250,8 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--g9);
             </ul>
           </div>
           <div class="fg"><label class="fl">이름 <span class="req">*</span></label><input type="text" class="fi" id="m-name" placeholder="이름을 입력해주세요"><div class="fe" id="e-m-name">이름을 입력해주세요.</div></div>
-          <div class="fg"><label class="fl">학번 <span class="req">*</span></label><input type="text" class="fi" id="m-sid" placeholder="ex. 2000-00000"><div class="fe" id="e-m-sid">학번을 입력해주세요.</div></div>
-          <div class="fg"><label class="fl">전화번호 <span class="req">*</span></label><input type="tel" class="fi" id="m-tel" placeholder="ex. 010-1234-5678"><div class="fe" id="e-m-tel">전화번호를 입력해주세요.</div></div>
+          <div class="fg"><label class="fl">학번 <span class="req">*</span></label><input type="text" class="fi" id="m-sid" placeholder="ex. 2000-00000" inputmode="numeric" maxlength="10"><div class="fe" id="e-m-sid">학번을 입력해주세요.</div></div>
+          <div class="fg"><label class="fl">전화번호 <span class="req">*</span></label><input type="tel" class="fi" id="m-tel" placeholder="ex. 010-1234-5678" inputmode="numeric" maxlength="13"><div class="fe" id="e-m-tel">전화번호를 입력해주세요.</div></div>
           <div class="fg">
             <label class="fl">학부 <span class="req">*</span></label>
             <select class="fs" id="m-dept">
@@ -334,8 +334,8 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--g9);
             </ul>
           </div>
           <div class="fg"><label class="fl">이름 <span class="req">*</span></label><input type="text" class="fi" id="a-name" placeholder="이름을 입력해주세요"><div class="fe" id="e-a-name">이름을 입력해주세요.</div></div>
-          <div class="fg"><label class="fl">학번 <span class="req">*</span></label><input type="text" class="fi" id="a-sid" placeholder="ex. 2000-00000"><div class="fe" id="e-a-sid">학번을 입력해주세요.</div></div>
-          <div class="fg"><label class="fl">전화번호 <span class="req">*</span></label><input type="tel" class="fi" id="a-tel" placeholder="ex. 010-1234-5678"><div class="fe" id="e-a-tel">전화번호를 입력해주세요.</div></div>
+          <div class="fg"><label class="fl">학번 <span class="req">*</span></label><input type="text" class="fi" id="a-sid" placeholder="ex. 2000-00000" inputmode="numeric" maxlength="10"><div class="fe" id="e-a-sid">학번을 입력해주세요.</div></div>
+          <div class="fg"><label class="fl">전화번호 <span class="req">*</span></label><input type="tel" class="fi" id="a-tel" placeholder="ex. 010-1234-5678" inputmode="numeric" maxlength="13"><div class="fe" id="e-a-tel">전화번호를 입력해주세요.</div></div>
           <div class="fg">
             <label class="fl">학부 <span class="req">*</span></label>
             <select class="fs" id="a-dept">
@@ -687,6 +687,29 @@ function toast(msg){
 ========================================================= */
 const fv=id=>$(id).value.trim();
 const fe=(id,on)=>$(id).classList.toggle('on',on);
+
+function formatStudentId(value){
+  const digits=value.replace(/\D/g,'').slice(0,9);
+  if(digits.length<=4) return digits;
+  return `${digits.slice(0,4)}-${digits.slice(4)}`;
+}
+function formatPhone(value){
+  const digits=value.replace(/\D/g,'').slice(0,11);
+  if(digits.length<=3) return digits;
+  if(digits.length<=7) return `${digits.slice(0,3)}-${digits.slice(3)}`;
+  return `${digits.slice(0,3)}-${digits.slice(3,7)}-${digits.slice(7)}`;
+}
+function bindAutoFormat(id,formatter){
+  const el=$(id);
+  if(!el) return;
+  el.addEventListener('input',()=>{
+    el.value=formatter(el.value);
+  });
+}
+function initInputFormatters(){
+  ['m-sid','a-sid'].forEach(id=>bindAutoFormat(id,formatStudentId));
+  ['m-tel','a-tel'].forEach(id=>bindAutoFormat(id,formatPhone));
+}
 
 function stepGo(d1,l1,d2,s1,s2){
   $(d1).classList.remove('active');$(d1).classList.add('done');$(d1).textContent='✓';
@@ -1063,6 +1086,7 @@ function clearData(type){
    초기화
 ========================================================= */
 initQ();
+initInputFormatters();
 initStatusListener(); // Firebase 실시간 상태 감시 시작
 if(location.hash==='#admin') initAdmin();
 </script>
