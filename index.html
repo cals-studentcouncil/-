@@ -63,7 +63,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--g9);
 .fg{margin-bottom:18px}
 .fl{display:block;font-size:13px;font-weight:600;margin-bottom:7px}
 .fl .req{color:var(--rd);margin-left:2px}
-.fi,.fs{width:100%;padding:11px 14px;border:2px solid var(--g2);border-radius:var(--rs);font-family:'Noto Sans KR',sans-serif;font-size:14px;outline:none;transition:border-color .2s;background:var(--wh)}
+.fi,.fs{width:100%;min-height:48px;padding:11px 14px;border:2px solid var(--g2);border-radius:var(--rs);font-family:'Noto Sans KR',sans-serif;font-size:16px;outline:none;transition:border-color .2s;background:var(--wh)}
 .fi:focus,.fs:focus{border-color:var(--gm)}
 .fs{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23aaa'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px}
 .fe{font-size:11px;color:var(--rd);margin-top:4px;display:none}
@@ -117,6 +117,14 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--g9);
 .success h2{font-size:22px;font-weight:900;color:var(--gd);margin-bottom:10px}
 .success p{font-size:14px;color:var(--g7);line-height:1.7}
 .success .sub{font-size:12px;color:var(--g5);margin-top:16px}
+.summary-box{margin:24px 0 4px;padding:18px;border:1px solid var(--g2);border-radius:var(--rs);background:#fbfffd;text-align:left}
+.summary-title{font-size:15px;font-weight:800;color:var(--gd);margin-bottom:12px}
+.summary-person{display:grid;gap:6px;padding-bottom:14px;margin-bottom:14px;border-bottom:1px solid var(--g2);font-size:13px;color:var(--g7)}
+.summary-person b{color:var(--g9);font-weight:700}
+.summary-list{display:grid;gap:12px}
+.summary-item{display:grid;gap:4px}
+.summary-label{font-size:12px;font-weight:700;color:var(--g5)}
+.summary-value{font-size:14px;line-height:1.5;color:var(--g9);word-break:keep-all;overflow-wrap:anywhere}
 
 /* ── Toast ── */
 #toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(80px);background:#1a1a1a;color:#fff;padding:12px 24px;border-radius:50px;font-size:13px;font-weight:500;z-index:9999;transition:transform .3s ease;white-space:nowrap;pointer-events:none}
@@ -163,7 +171,6 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--g9);
 .rank-medal{font-size:18px}
 .score-chip{display:inline-block;background:var(--g1);border-radius:50px;padding:2px 10px;font-size:12px;font-weight:700}
 .score-total{font-size:16px;font-weight:900;color:var(--gd)}
-
 /* Data table */
 .data-wrap{overflow-x:auto;margin-bottom:24px}
 .data-table{width:100%;border-collapse:collapse;font-size:12px;min-width:600px}
@@ -222,8 +229,8 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--g9);
       <div class="card">
         <div class="closed-screen">
           <div class="icon">🔒</div>
-          <h2>오전 베팅이 마감되었습니다</h2>
-          <p>베팅 기간: 5/3(목) ~ 5/5(토) 오전 10:30<br><br>
+          <h2 id="m-closed-title">오전 베팅이 마감되었습니다</h2>
+          <p id="m-closed-desc">베팅 기간: 5/3(목) ~ 5/5(토) 오전 10:30<br><br>
           당첨자는 점심시간 중 인스타그램 스토리 및<br>종합운동장 구령대에서 발표됩니다.</p>
         </div>
       </div>
@@ -293,7 +300,8 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--g9);
             <h2>오전 베팅 완료!</h2>
             <p>베팅이 성공적으로 제출되었습니다.<br>베팅한 팀을 응원하며 즐거운 체육대회를!</p>
             <p class="sub">📣 당첨자 발표: 점심시간 인스타그램 스토리 &amp; 구령대</p>
-            <br><br>
+            <div id="m-summary"></div>
+            <br>
             <button class="btn btn-g" onclick="switchTab('afternoon')" style="margin:0 auto">🌇 오후 베팅도 참여하기</button>
           </div>
         </div>
@@ -307,8 +315,8 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--g9);
       <div class="card">
         <div class="closed-screen">
           <div class="icon">🔒</div>
-          <h2>오후 베팅이 마감되었습니다</h2>
-          <p>베팅 기간: 5/5(토) 오전 10:30 ~ 오후 1:30<br><br>
+          <h2 id="a-closed-title">오후 베팅이 마감되었습니다</h2>
+          <p id="a-closed-desc">베팅 기간: 5/5(토) 오전 10:30 ~ 오후 1:30<br><br>
           당첨자는 오후 베팅 종료 후 인스타그램 스토리 및<br>종합운동장 구령대에서 발표됩니다.</p>
         </div>
       </div>
@@ -373,6 +381,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--g9);
             <h2>오후 베팅 완료!</h2>
             <p>베팅이 성공적으로 제출되었습니다.<br>베팅한 팀을 응원하며 즐거운 체육대회를!</p>
             <p class="sub">📣 당첨자 발표: 오후 베팅 종료 후 인스타그램 스토리 &amp; 구령대</p>
+            <div id="a-summary"></div>
           </div>
         </div>
       </div>
@@ -582,12 +591,30 @@ const D8 = [
 const D7 = D8.slice(0,7);
 const BBALL_GAP = ['1~5점 차','6~10점 차','11~15점 차','16~20점 차','21점 이상'];
 const JOKGU_GAP = ['0~3점 차','4~7점 차','8~12점 차','13점 이상'];
+const BET_WINDOWS = {
+  morning: {
+    label: '오전',
+    period: '5/3(목) ~ 5/5(토) 오전 10:30',
+    result: '당첨자는 점심시간 중 인스타그램 스토리 및<br>종합운동장 구령대에서 발표됩니다.',
+    start: new Date('2026-05-03T00:00:00+09:00'),
+    end: new Date('2026-05-05T10:30:00+09:00')
+  },
+  afternoon: {
+    label: '오후',
+    period: '5/5(토) 오전 10:30 ~ 오후 1:30',
+    result: '당첨자는 오후 베팅 종료 후 인스타그램 스토리 및<br>종합운동장 구령대에서 발표됩니다.',
+    start: new Date('2026-05-05T10:30:00+09:00'),
+    end: new Date('2026-05-05T13:30:00+09:00')
+  }
+};
 
 /* =========================================================
    상태
 ========================================================= */
 let STATUS = {morning:false, afternoon:false};
 let ACTUAL = {};
+let SUBMITTING = {morning:false, afternoon:false};
+let CHECKING_DUPLICATE = {morning:false, afternoon:false};
 
 // 실시간으로 베팅 상태 감시 — 관리자가 닫으면 모든 학생 화면에 즉시 반영
 function initStatusListener(){
@@ -654,9 +681,41 @@ function initQ(){
 /* =========================================================
    메인 UI 상태 적용
 ========================================================= */
+function getClosedInfo(type){
+  const w = BET_WINDOWS[type];
+  const now = new Date();
+  if(now < w.start){
+    return {
+      title: `${w.label} 베팅이 아직 시작되지 않았습니다`,
+      desc: `베팅 시작: ${w.period}<br><br>시작 시간이 되면 이 화면에서 베팅에 참여할 수 있습니다.`,
+      badge: '⏳ 베팅 시작 전'
+    };
+  }
+  if(now > w.end){
+    return {
+      title: `${w.label} 베팅이 마감되었습니다`,
+      desc: `베팅 기간: ${w.period}<br><br>${w.result}`,
+      badge: '🔴 베팅 마감'
+    };
+  }
+  return {
+    title: `${w.label} 베팅 참여가 잠시 중지되었습니다`,
+    desc: `베팅 기간: ${w.period}<br><br>관리자가 베팅을 열면 다시 참여할 수 있습니다.`,
+    badge: '⏸️ 베팅 중지'
+  };
+}
+
+function updateClosedScreen(type){
+  const info = getClosedInfo(type);
+  const prefix = type === 'morning' ? 'm' : 'a';
+  $(`${prefix}-closed-title`).textContent = info.title;
+  $(`${prefix}-closed-desc`).innerHTML = info.desc;
+}
+
 function applyStatus(){
   ['morning','afternoon'].forEach(t=>{
     const open = STATUS[t];
+    updateClosedScreen(t);
     $(t==='morning'?'m-closed':'a-closed').style.display  = open?'none':'block';
     $(t==='morning'?'m-open'  :'a-open'  ).style.display  = open?'block':'none';
   });
@@ -687,6 +746,72 @@ function toast(msg){
 ========================================================= */
 const fv=id=>$(id).value.trim();
 const fe=(id,on)=>$(id).classList.toggle('on',on);
+const onlyDigits=value=>(value||'').replace(/\D/g,'');
+const esc=value=>String(value??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+
+function maskPhone(phone){
+  const digits=onlyDigits(phone);
+  if(digits.length===11) return `${digits.slice(0,3)}-****-${digits.slice(7)}`;
+  if(digits.length>=7) return `${digits.slice(0,3)}-****-${digits.slice(-4)}`;
+  return phone;
+}
+
+function renderBetSummary(type,data){
+  const target=$(type==='morning'?'m-summary':'a-summary');
+  if(!target) return;
+  const entries=type==='morning'
+    ? [
+      ['농구 상위 3팀',data.농구_상위3팀],
+      ['농구 결승 점수차',data.농구_결승점수차],
+      ['좌식 배드민턴 우승팀',data.좌식배드민턴_우승],
+      ['남자 피구 우승팀',data.남자피구_우승],
+      ['여자 피구 우승팀',data.여자피구_우승],
+      ['접시콘 가져오기 우승팀',data.접시콘_우승],
+      ['족구 상위 3팀',data.족구_상위3팀],
+      ['족구 결승 점수차',data.족구_결승점수차],
+      ['오전 경기 1등팀',data.오전경기_1등팀]
+    ]
+    : [
+      ['미션달리기 우승팀',data.미션달리기_우승],
+      ['꼬리잡기 상위 3팀',data.꼬리잡기_상위3팀],
+      ['줄다리기 상위 3팀',data.줄다리기_상위3팀],
+      ['계주 우승팀',data.계주_우승],
+      ['최종 우승팀',data.최종_우승팀]
+    ];
+  target.innerHTML=`
+    <div class="summary-box">
+      <div class="summary-title">내 베팅 요약</div>
+      <div class="summary-person">
+        <div><b>참가자</b> ${esc(data.name)} · ${esc(data.dept)}</div>
+        <div><b>학번</b> ${esc(data.studentId)}</div>
+        <div><b>전화번호</b> ${esc(maskPhone(data.phone))}</div>
+      </div>
+      <div class="summary-list">
+        ${entries.map(([label,value])=>`
+          <div class="summary-item">
+            <div class="summary-label">${esc(label)}</div>
+            <div class="summary-value">${esc(value)}</div>
+          </div>
+        `).join('')}
+      </div>
+    </div>`;
+}
+
+function hasDuplicateSubmission(type,studentId,phone){
+  const sid=onlyDigits(studentId), tel=onlyDigits(phone);
+  return db.ref(type).once('value').then(snap=>{
+    let duplicate=false;
+    snap.forEach(child=>{
+      const row=child.val()||{};
+      if((sid&&onlyDigits(row.studentId)===sid)||(tel&&onlyDigits(row.phone)===tel)){
+        duplicate=true;
+        return true;
+      }
+      return false;
+    });
+    return duplicate;
+  });
+}
 
 function formatStudentId(value){
   const digits=value.replace(/\D/g,'').slice(0,9);
@@ -727,15 +852,28 @@ function stepBack(d1,l1,d2,s1,s2,n){
 /* =========================================================
    오전 폼
 ========================================================= */
-function mNext(){
+async function mNext(){
+  if(CHECKING_DUPLICATE.morning){toast('⏳ 제출 여부를 확인 중입니다.');return;}
   const n=fv('m-name'),s=fv('m-sid'),t=fv('m-tel'),d=fv('m-dept');
   fe('e-m-name',!n);fe('e-m-sid',!s);fe('e-m-tel',!t);fe('e-m-dept',!d);
   if(!n||!s||!t||!d) return;
-  stepGo('md1','ml1','md2','m-s1','m-s2');
+  CHECKING_DUPLICATE.morning=true;
+  try{
+    if(await hasDuplicateSubmission('morning',s,t)){
+      toast('⚠️ 이미 오전 베팅을 제출한 학번 또는 전화번호입니다.');
+      return;
+    }
+    stepGo('md1','ml1','md2','m-s1','m-s2');
+  }catch(e){
+    toast('⚠️ 제출 여부 확인 실패. 인터넷 연결을 확인해주세요.');
+  }finally{
+    CHECKING_DUPLICATE.morning=false;
+  }
 }
 function mBack(){stepBack('md1','ml1','md2','m-s1','m-s2','1');}
 
-function mSubmit(){
+async function mSubmit(){
+  if(SUBMITTING.morning){toast('⏳ 제출 중입니다. 잠시만 기다려주세요.');return;}
   const bball=getChecked('m_bball'), bballGap=getRadio('m_bball_gap');
   const badminton=getRadio('m_badminton'), dodgeM=getRadio('m_dodge_m'), dodgeF=getRadio('m_dodge_f');
   const dishcone=getRadio('m_dishcone'), jokgu=getChecked('m_jokgu'), jokguGap=getRadio('m_jokgu_gap');
@@ -755,23 +893,47 @@ function mSubmit(){
     농구_상위3팀:bball.join(', ')||'(선택안함)',농구_결승점수차:bballGap,
     좌식배드민턴_우승:badminton,남자피구_우승:dodgeM,여자피구_우승:dodgeF,접시콘_우승:dishcone,
     족구_상위3팀:jokgu.join(', '),족구_결승점수차:jokguGap,오전경기_1등팀:top};
-  db.ref('morning').push(data)
-    .then(()=>{ $('m-s2').style.display='none'; $('m-success').style.display='block'; window.scrollTo({top:0,behavior:'smooth'}); })
-    .catch(()=>toast('⚠️ 저장 실패. 인터넷 연결을 확인해주세요.'));
+  SUBMITTING.morning=true;
+  try{
+    if(await hasDuplicateSubmission('morning',data.studentId,data.phone)){
+      toast('⚠️ 이미 오전 베팅을 제출한 학번 또는 전화번호입니다.');
+      return;
+    }
+    await db.ref('morning').push(data);
+    renderBetSummary('morning',data);
+    $('m-s2').style.display='none'; $('m-success').style.display='block'; window.scrollTo({top:0,behavior:'smooth'});
+  }catch(e){
+    toast('⚠️ 저장 실패. 인터넷 연결을 확인해주세요.');
+  }finally{
+    SUBMITTING.morning=false;
+  }
 }
 
 /* =========================================================
    오후 폼
 ========================================================= */
-function aNext(){
+async function aNext(){
+  if(CHECKING_DUPLICATE.afternoon){toast('⏳ 제출 여부를 확인 중입니다.');return;}
   const n=fv('a-name'),s=fv('a-sid'),t=fv('a-tel'),d=fv('a-dept');
   fe('e-a-name',!n);fe('e-a-sid',!s);fe('e-a-tel',!t);fe('e-a-dept',!d);
   if(!n||!s||!t||!d) return;
-  stepGo('ad1','al1','ad2','a-s1','a-s2');
+  CHECKING_DUPLICATE.afternoon=true;
+  try{
+    if(await hasDuplicateSubmission('afternoon',s,t)){
+      toast('⚠️ 이미 오후 베팅을 제출한 학번 또는 전화번호입니다.');
+      return;
+    }
+    stepGo('ad1','al1','ad2','a-s1','a-s2');
+  }catch(e){
+    toast('⚠️ 제출 여부 확인 실패. 인터넷 연결을 확인해주세요.');
+  }finally{
+    CHECKING_DUPLICATE.afternoon=false;
+  }
 }
 function aBack(){stepBack('ad1','al1','ad2','a-s1','a-s2','1');}
 
-function aSubmit(){
+async function aSubmit(){
+  if(SUBMITTING.afternoon){toast('⏳ 제출 중입니다. 잠시만 기다려주세요.');return;}
   const mission=getRadio('a_mission'),tail=getChecked('a_tail'),tug=getChecked('a_tug');
   const relay=getRadio('a_relay'),final=getRadio('a_final');
   let ok=true;
@@ -785,9 +947,20 @@ function aSubmit(){
     name:fv('a-name'),studentId:fv('a-sid'),phone:fv('a-tel'),dept:fv('a-dept'),
     미션달리기_우승:mission,꼬리잡기_상위3팀:tail.join(', '),줄다리기_상위3팀:tug.join(', '),
     계주_우승:relay,최종_우승팀:final};
-  db.ref('afternoon').push(data)
-    .then(()=>{ $('a-s2').style.display='none'; $('a-success').style.display='block'; window.scrollTo({top:0,behavior:'smooth'}); })
-    .catch(()=>toast('⚠️ 저장 실패. 인터넷 연결을 확인해주세요.'));
+  SUBMITTING.afternoon=true;
+  try{
+    if(await hasDuplicateSubmission('afternoon',data.studentId,data.phone)){
+      toast('⚠️ 이미 오후 베팅을 제출한 학번 또는 전화번호입니다.');
+      return;
+    }
+    await db.ref('afternoon').push(data);
+    renderBetSummary('afternoon',data);
+    $('a-s2').style.display='none'; $('a-success').style.display='block'; window.scrollTo({top:0,behavior:'smooth'});
+  }catch(e){
+    toast('⚠️ 저장 실패. 인터넷 연결을 확인해주세요.');
+  }finally{
+    SUBMITTING.afternoon=false;
+  }
 }
 
 /* =========================================================
@@ -887,7 +1060,7 @@ function switchResult(tab){
 function setStatus(type,open){
   db.ref('status/'+type).set(open);
   // renderStatusCards & applyStatus는 initStatusListener의 실시간 콜백이 처리
-  toast(open?`✅ ${type==='morning'?'오전':'오후'} 베팅이 열렸습니다`:`🔴 ${type==='morning'?'오전':'오후'} 베팅이 마감되었습니다`);
+  toast(open?`✅ ${type==='morning'?'오전':'오후'} 베팅이 열렸습니다`:`${getClosedInfo(type).badge} 상태로 변경되었습니다`);
 }
 
 function renderStatusCards(){
@@ -896,7 +1069,7 @@ function renderStatusCards(){
     const card=$('sc-'+t), badge=$('sb-'+t);
     card.className='status-card '+(open?'open':'closed');
     badge.className='sc-badge '+(open?'open':'closed');
-    badge.textContent=open?'🟢 베팅 진행 중':'🔴 베팅 마감';
+    badge.textContent=open?'🟢 베팅 진행 중':getClosedInfo(t).badge;
   });
 }
 
@@ -1088,6 +1261,10 @@ function clearData(type){
 initQ();
 initInputFormatters();
 initStatusListener(); // Firebase 실시간 상태 감시 시작
+setInterval(()=>{
+  applyStatus();
+  if($('admin-wrap').style.display !== 'none') renderStatusCards();
+}, 30000);
 if(location.hash==='#admin') initAdmin();
 </script>
 </body>
