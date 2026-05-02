@@ -799,18 +799,20 @@ function renderBetSummary(type,data){
 
 function hasDuplicateSubmission(type,studentId,phone){
   const sid=onlyDigits(studentId), tel=onlyDigits(phone);
-  return db.ref(type).once('value').then(snap=>{
-    let duplicate=false;
-    snap.forEach(child=>{
-      const row=child.val()||{};
-      if((sid&&onlyDigits(row.studentId)===sid)||(tel&&onlyDigits(row.phone)===tel)){
-        duplicate=true;
-        return true;
-      }
-      return false;
-    });
-    return duplicate;
-  });
+  const checks=[];
+  if(sid) checks.push(db.ref(`submissionIndex/${type}/sid/${sid}`).once('value'));
+  if(tel) checks.push(db.ref(`submissionIndex/${type}/phone/${tel}`).once('value'));
+  return Promise.all(checks).then(snaps=>snaps.some(snap=>snap.exists()));
+}
+
+function saveSubmission(type,data){
+  const id=db.ref(type).push().key;
+  const sid=onlyDigits(data.studentId), tel=onlyDigits(data.phone);
+  const updates={};
+  updates[`${type}/${id}`]=data;
+  if(sid) updates[`submissionIndex/${type}/sid/${sid}`]=id;
+  if(tel) updates[`submissionIndex/${type}/phone/${tel}`]=id;
+  return db.ref().update(updates);
 }
 
 function formatStudentId(value){
@@ -899,7 +901,7 @@ async function mSubmit(){
       toast('⚠️ 이미 오전 베팅을 제출한 학번 또는 전화번호입니다.');
       return;
     }
-    await db.ref('morning').push(data);
+    await saveSubmission('morning',data);
     renderBetSummary('morning',data);
     $('m-s2').style.display='none'; $('m-success').style.display='block'; window.scrollTo({top:0,behavior:'smooth'});
   }catch(e){
@@ -953,7 +955,7 @@ async function aSubmit(){
       toast('⚠️ 이미 오후 베팅을 제출한 학번 또는 전화번호입니다.');
       return;
     }
-    await db.ref('afternoon').push(data);
+    await saveSubmission('afternoon',data);
     renderBetSummary('afternoon',data);
     $('a-s2').style.display='none'; $('a-success').style.display='block'; window.scrollTo({top:0,behavior:'smooth'});
   }catch(e){
