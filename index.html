@@ -32,7 +32,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--g9);
 
 /* ── Tab nav ── */
 .tab-nav{display:flex;background:var(--wh);border-bottom:2px solid var(--g2);position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.06)}
-.tab-btn{flex:1;padding:16px 10px;border:none;background:none;font-family:'Noto Sans KR',sans-serif;font-size:15px;font-weight:500;color:var(--g5);cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-2px;transition:all .25s;display:flex;align-items:center;justify-content:center;gap:6px}
+.tab-btn{flex:1;padding:16px 10px;border:none;background:none;font-family:'Noto Sans KR',sans-serif;font-size:clamp(13px,3.5vw,15px);font-weight:500;color:var(--g5);cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-2px;transition:all .25s;display:flex;align-items:center;justify-content:center;gap:6px}
 .tab-btn.active{color:var(--gm);border-bottom-color:var(--gm);font-weight:700}
 
 /* ── Layout ── */
@@ -194,7 +194,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--g9);
 @media(max-width:460px){
   .opts.two{grid-template-columns:1fr}
   .status-row{grid-template-columns:1fr}
-  .card,.admin-wrap{padding:18px}
+  .card,#admin-wrap{padding:18px}
 }
 </style>
 </head>
@@ -277,7 +277,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--g9);
         <div class="card">
           <div class="card-title">🏟️ 오전 경기 예측</div>
           <div class="card-desc">우승할 것 같은 팀을 예측해주세요!</div>
-          <div class="qb"><div class="qt">🏀 농구 상위 3팀</div><span class="qp">각 10점</span><div class="qn">최대 3개 선택 가능 (선택 안 함 = 0점)</div><div class="opts two" id="q-m-bball"></div><div class="fe" id="e-m-bball"></div></div>
+          <div class="qb"><div class="qt">🏀 농구 상위 3팀</div><span class="qp">각 10점</span><div class="qn">최대 3개 선택 가능합니다.</div><div class="opts two" id="q-m-bball"></div><div class="fe" id="e-m-bball">최소 1개 이상 선택해주세요.</div></div>
           <div class="qb"><div class="qt">🏀 농구 결승 경기 점수 차</div><span class="qp">10점</span><div class="opts two" id="q-m-bball-gap"></div><div class="fe" id="e-m-bball-gap">선택해주세요.</div></div>
           <div class="qb"><div class="qt">🏸 좌식 배드민턴 우승팀</div><span class="qp">20점</span><div class="opts two" id="q-m-badminton"></div><div class="fe" id="e-m-badminton">선택해주세요.</div></div>
           <div class="qb"><div class="qt">🔴 남자 피구 우승팀</div><span class="qp">20점</span><div class="opts two" id="q-m-dodge-m"></div><div class="fe" id="e-m-dodge-m">선택해주세요.</div></div>
@@ -350,7 +350,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--g9);
               <option value="">학부를 선택해주세요</option>
               <option>식물생산과학부</option><option>산림과학부</option><option>식품동물생명공학부</option>
               <option>응용생물화학부</option><option>조경지역시스템공학부</option><option>바이오시스템소재학부</option>
-              <option>농경제사회학부</option>
+              <option>농경제사회학부</option><option>스마트시스템과학과</option>
             </select>
             <div class="fe" id="e-a-dept">학부를 선택해주세요.</div>
           </div>
@@ -432,7 +432,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--g9);
   <div class="atab active" id="at-status">
     <div class="info-box">
       💡 <strong>베팅 상태를 관리자가 직접 열기/닫기 할 수 있습니다.</strong><br>
-      설정은 이 기기의 브라우저에 저장됩니다. 구글 시트 URL이 연동된 경우 서버에도 동기화됩니다.
+      설정은 Firebase에 실시간으로 저장되어 모든 참가자 화면에 즉시 반영됩니다.
     </div>
     <div class="status-row">
       <div class="status-card" id="sc-morning">
@@ -615,6 +615,7 @@ let STATUS = {morning:false, afternoon:false};
 let ACTUAL = {};
 let SUBMITTING = {morning:false, afternoon:false};
 let CHECKING_DUPLICATE = {morning:false, afternoon:false};
+let SUBMITTED = {morning:false, afternoon:false};
 
 // 실시간으로 베팅 상태 감시 — 관리자가 닫으면 모든 학생 화면에 즉시 반영
 function initStatusListener(){
@@ -855,6 +856,7 @@ function stepBack(d1,l1,d2,s1,s2,n){
    오전 폼
 ========================================================= */
 async function mNext(){
+  if(SUBMITTED.morning){toast('✅ 이미 오전 베팅을 완료하셨습니다.');return;}
   if(CHECKING_DUPLICATE.morning){toast('⏳ 제출 여부를 확인 중입니다.');return;}
   const n=fv('m-name'),s=fv('m-sid'),t=fv('m-tel'),d=fv('m-dept');
   fe('e-m-name',!n);fe('e-m-sid',!s);fe('e-m-tel',!t);fe('e-m-dept',!d);
@@ -875,12 +877,14 @@ async function mNext(){
 function mBack(){stepBack('md1','ml1','md2','m-s1','m-s2','1');}
 
 async function mSubmit(){
+  if(SUBMITTED.morning){toast('✅ 이미 오전 베팅을 완료하셨습니다.');return;}
   if(SUBMITTING.morning){toast('⏳ 제출 중입니다. 잠시만 기다려주세요.');return;}
   const bball=getChecked('m_bball'), bballGap=getRadio('m_bball_gap');
   const badminton=getRadio('m_badminton'), dodgeM=getRadio('m_dodge_m'), dodgeF=getRadio('m_dodge_f');
   const dishcone=getRadio('m_dishcone'), jokgu=getChecked('m_jokgu'), jokguGap=getRadio('m_jokgu_gap');
   const top=getRadio('m_top');
   let ok=true;
+  fe('e-m-bball',    !bball.length); if(!bball.length) ok=false;
   fe('e-m-bball-gap',!bballGap);  if(!bballGap)  ok=false;
   fe('e-m-badminton',!badminton); if(!badminton) ok=false;
   fe('e-m-dodge-m',  !dodgeM);   if(!dodgeM)    ok=false;
@@ -902,6 +906,7 @@ async function mSubmit(){
       return;
     }
     await saveSubmission('morning',data);
+    SUBMITTED.morning = true;
     renderBetSummary('morning',data);
     $('m-s2').style.display='none'; $('m-success').style.display='block'; window.scrollTo({top:0,behavior:'smooth'});
   }catch(e){
@@ -915,6 +920,7 @@ async function mSubmit(){
    오후 폼
 ========================================================= */
 async function aNext(){
+  if(SUBMITTED.afternoon){toast('✅ 이미 오후 베팅을 완료하셨습니다.');return;}
   if(CHECKING_DUPLICATE.afternoon){toast('⏳ 제출 여부를 확인 중입니다.');return;}
   const n=fv('a-name'),s=fv('a-sid'),t=fv('a-tel'),d=fv('a-dept');
   fe('e-a-name',!n);fe('e-a-sid',!s);fe('e-a-tel',!t);fe('e-a-dept',!d);
@@ -935,6 +941,7 @@ async function aNext(){
 function aBack(){stepBack('ad1','al1','ad2','a-s1','a-s2','1');}
 
 async function aSubmit(){
+  if(SUBMITTED.afternoon){toast('✅ 이미 오후 베팅을 완료하셨습니다.');return;}
   if(SUBMITTING.afternoon){toast('⏳ 제출 중입니다. 잠시만 기다려주세요.');return;}
   const mission=getRadio('a_mission'),tail=getChecked('a_tail'),tug=getChecked('a_tug');
   const relay=getRadio('a_relay'),final=getRadio('a_final');
@@ -956,6 +963,7 @@ async function aSubmit(){
       return;
     }
     await saveSubmission('afternoon',data);
+    SUBMITTED.afternoon = true;
     renderBetSummary('afternoon',data);
     $('a-s2').style.display='none'; $('a-success').style.display='block'; window.scrollTo({top:0,behavior:'smooth'});
   }catch(e){
