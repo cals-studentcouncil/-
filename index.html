@@ -1254,7 +1254,10 @@ function exportRankCSV(){
 
 function clearData(type){
   if(!confirm(`${type==='morning'?'오전':'오후'} 베팅 데이터를 모두 삭제할까요?\n⚠️ Firebase에서도 영구 삭제됩니다.`)) return;
-  db.ref(type).remove().then(()=>{ renderDataTables(); renderRankings(); toast('삭제 완료'); });
+  const updates={};
+  updates[type]=null;
+  updates[`submissionIndex/${type}`]=null;
+  db.ref().update(updates).then(()=>{ renderDataTables(); renderRankings(); toast('삭제 완료'); });
 }
 
 /* =========================================================
