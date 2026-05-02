@@ -1257,7 +1257,9 @@ function clearData(type){
   const updates={};
   updates[type]=null;
   updates[`submissionIndex/${type}`]=null;
-  db.ref().update(updates).then(()=>{ renderDataTables(); renderRankings(); toast('삭제 완료'); });
+  db.ref().update(updates)
+    .then(()=>{ renderDataTables(); renderRankings(); toast('삭제 완료'); })
+    .catch(e=>{ console.error(e); toast('⚠️ 삭제 실패. Firebase Rules를 확인해주세요.'); });
 }
 
 /* =========================================================
