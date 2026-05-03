@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>2026 농생대 체육대회 베팅 이벤트</title>
 <meta property="og:title" content="2026 농생대 체육대회 베팅 이벤트">
-<meta property="og:description" content="경기 결과를 예측하고 어린이날 상품을 받아가세요!">
+<meta property="og:description" content="경기 결과를 예측하고 풍성한 상품을 받아가세요!">
 <meta property="og:image" content="https://cals-studentcouncil.github.io/-/thumbnail.png">
 <meta property="og:url" content="https://cals-studentcouncil.github.io/-/">
 <meta property="og:type" content="website">
@@ -187,6 +187,16 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--g9);
 .data-section-title{font-size:15px;font-weight:700;color:var(--gd);margin:20px 0 10px;display:flex;align-items:center;justify-content:space-between}
 .data-actions{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
 .data-actions .btn{padding:9px 16px;font-size:12px;width:auto}
+/* Stats */
+.stats-section{margin-bottom:28px}
+.stats-section-title{font-size:15px;font-weight:700;color:var(--gd);margin-bottom:12px;padding-bottom:8px;border-bottom:2px solid var(--g2)}
+.stat-q{background:var(--wh);border-radius:var(--r);padding:16px;box-shadow:var(--sh);margin-bottom:10px}
+.stat-q-label{font-size:13px;font-weight:700;color:var(--gd);margin-bottom:10px}
+.stat-bar-row{display:flex;align-items:center;gap:8px;margin-bottom:7px}
+.stat-bar-label{font-size:12px;color:var(--g7);width:150px;flex-shrink:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.stat-bar-wrap{flex:1;background:var(--g2);border-radius:50px;height:16px;overflow:hidden}
+.stat-bar-fill{height:100%;background:var(--gm);border-radius:50px;transition:width .4s ease}
+.stat-bar-cnt{font-size:12px;font-weight:700;color:var(--g5);min-width:70px;text-align:right;white-space:nowrap}
 
 /* Info box */
 .info-box{background:#e8f4fd;border:1px solid #aed6f1;border-radius:var(--rs);padding:13px 16px;margin-bottom:16px;font-size:12px;color:#1a5276;line-height:1.6}
@@ -254,7 +264,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--g9);
       <div id="m-s1">
         <div class="card">
           <div class="card-title">☀️ 오전 경기 베팅 이벤트</div>
-          <div class="card-desc">경기 결과를 예측해 어린이날 상품을 받아가세요!</div>
+          <div class="card-desc">경기 결과를 예측해 풍성한 상품을 받아가세요!</div>
           <div class="notice">
             <div class="notice-title">🚨 주의사항</div>
             <ul>
@@ -284,7 +294,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--g9);
       <div id="m-s2" style="display:none">
         <div class="card">
           <div class="card-title">🏟️ 오전 경기 예측</div>
-          <div class="card-desc">승리할 것 같은 팀을 예측해주세요!</div>
+          <div class="card-desc">우승할 것 같은 팀을 예측해주세요!</div>
           <div class="qb"><div class="qt">🏀 농구 상위 3팀</div><span class="qp">각 10점</span><div class="qn">최대 3개 선택 가능합니다.</div><div class="opts two" id="q-m-bball"></div><div class="fe" id="e-m-bball">최소 1개 이상 선택해주세요.</div></div>
           <div class="qb"><div class="qt">🏀 농구 결승 경기 점수 차</div><span class="qp">10점</span><div class="opts two" id="q-m-bball-gap"></div><div class="fe" id="e-m-bball-gap">선택해주세요.</div></div>
           <div class="qb"><div class="qt">🏸 좌식 배드민턴 우승팀</div><span class="qp">20점</span><div class="opts two" id="q-m-badminton"></div><div class="fe" id="e-m-badminton">선택해주세요.</div></div>
@@ -370,7 +380,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--g9);
       <div id="a-s2" style="display:none">
         <div class="card">
           <div class="card-title">🏃 오후 경기 예측</div>
-          <div class="card-desc">승리할 것 같은 팀을 예측해주세요!</div>
+          <div class="card-desc">우승할 것 같은 팀을 예측해주세요!</div>
           <div class="qb"><div class="qt">🏃 미션달리기 우승팀</div><span class="qp">20점</span><div class="opts two" id="q-a-mission"></div><div class="fe" id="e-a-mission">선택해주세요.</div></div>
           <div class="qb"><div class="qt">🦊 꼬리잡기 상위 3팀</div><span class="qp">각 10점</span><div class="qn">최대 3개 선택 가능합니다.</div><div class="opts two" id="q-a-tail"></div><div class="fe" id="e-a-tail">최소 1개 이상 선택해주세요.</div></div>
           <div class="qb"><div class="qt">💪 줄다리기 상위 3팀</div><span class="qp">각 10점</span><div class="qn">최대 3개 선택 가능합니다.</div><div class="opts two" id="q-a-tug"></div><div class="fe" id="e-a-tug">최소 1개 이상 선택해주세요.</div></div>
@@ -435,6 +445,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--g9);
     <button class="anav-btn" onclick="switchAdmin('results')">🏆 경기 결과 입력</button>
     <button class="anav-btn" onclick="switchAdmin('ranking')">📊 점수 &amp; 순위</button>
     <button class="anav-btn" onclick="switchAdmin('data')">📋 응답 데이터</button>
+    <button class="anav-btn" onclick="switchAdmin('stats')">📈 예측 통계</button>
   </div>
 
   <!-- ── 탭1: 베팅 상태 ── -->
@@ -539,6 +550,15 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--g9);
       </div>
     </div>
     <div class="data-wrap"><table class="data-table" id="tbl-a"></table></div>
+  </div>
+  <!-- ── 탭5: 예측 통계 ── -->
+  <div class="atab" id="at-stats">
+    <div class="info-box">📈 각 질문별로 참가자들이 어떤 답을 선택했는지 비율을 확인할 수 있습니다.</div>
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;flex-wrap:wrap;gap:10px">
+      <div style="font-size:14px;font-weight:700;color:var(--gd)" id="stats-total-label">전체 제출 데이터 기준</div>
+      <button class="btn btn-b" onclick="renderStats()" style="width:auto;padding:9px 18px;font-size:12px">🔄 새로고침</button>
+    </div>
+    <div id="stats-content"><p style="color:var(--g5);padding:20px 0">탭을 클릭하면 통계가 로드됩니다.</p></div>
   </div>
   </div>
 
@@ -1062,11 +1082,12 @@ function initAdminPanel(){
 
 function switchAdmin(tab){
   document.querySelectorAll('.anav-btn').forEach((b,i)=>{
-    const tabs=['status','results','ranking','data'];
+    const tabs=['status','results','ranking','data','stats'];
     b.classList.toggle('active',tabs[i]===tab);
   });
   document.querySelectorAll('.atab').forEach(t=>t.classList.remove('active'));
   $('at-'+tab).classList.add('active');
+  if(tab==='stats') renderStats();
 }
 
 function switchResult(tab){
@@ -1178,6 +1199,125 @@ function calcA(sub){
   if(ACTUAL.a_relay && sub['계주_우승']    ===ACTUAL.a_relay) s+=30;
   if(ACTUAL.a_final && sub['최종_우승팀'] ===ACTUAL.a_final) s+=30;
   return s;
+}
+
+/* ── 예측 통계 ── */
+function renderStats(){
+  $('stats-content').innerHTML='<p style="color:var(--g5);padding:20px 0">⏳ 통계를 불러오는 중...</p>';
+  Promise.all([
+    db.ref('morning').once('value'),
+    db.ref('afternoon').once('value'),
+  ]).then(([mSnap,aSnap])=>{
+    const mList=Object.values(mSnap.val()||{});
+    const aList=Object.values(aSnap.val()||{});
+    _buildStats(mList,aList);
+  }).catch(()=>{
+    $('stats-content').innerHTML='<p style="color:var(--rd);padding:20px 0">⚠️ 통계 로드 실패. 인터넷 연결을 확인해주세요.</p>';
+  });
+}
+
+function _buildStats(mList,aList){
+  const mQ=[
+    {label:'🏀 농구 상위 3팀',       key:'농구_상위3팀',      opts:D8.map(d=>d.v),      multi:true},
+    {label:'🏀 농구 결승 점수차',     key:'농구_결승점수차',   opts:BBALL_GAP,             multi:false},
+    {label:'🏸 좌식 배드민턴 우승팀', key:'좌식배드민턴_우승', opts:CLASSES.map(c=>c.v),  multi:false},
+    {label:'🔴 남자 피구 우승팀',     key:'남자피구_우승',     opts:CLASSES.map(c=>c.v),  multi:false},
+    {label:'🔵 여자 피구 우승팀',     key:'여자피구_우승',     opts:CLASSES.map(c=>c.v),  multi:false},
+    {label:'🎯 접시콘 가져오기 우승팀',key:'접시콘_우승',      opts:CLASSES.map(c=>c.v),  multi:false},
+    {label:'⚽ 족구 상위 3팀',        key:'족구_상위3팀',      opts:D8.map(d=>d.v),       multi:true},
+    {label:'⚽ 족구 결승 점수차',     key:'족구_결승점수차',   opts:JOKGU_GAP,             multi:false},
+    {label:'🏆 오전 경기 1등팀',      key:'오전경기_1등팀',    opts:CLASSES.map(c=>c.v),  multi:false},
+  ];
+  const aQ=[
+    {label:'🏃 미션달리기 우승팀',    key:'미션달리기_우승',   opts:CLASSES.map(c=>c.v),  multi:false},
+    {label:'🦊 꼬리잡기 상위 3팀',   key:'꼬리잡기_상위3팀', opts:D7.map(d=>d.v),        multi:true},
+    {label:'💪 줄다리기 상위 3팀',   key:'줄다리기_상위3팀', opts:D7.map(d=>d.v),        multi:true},
+    {label:'🚀 계주 우승팀',          key:'계주_우승',         opts:CLASSES.map(c=>c.v),  multi:false},
+    {label:'🏆 최종 우승팀',          key:'최종_우승팀',       opts:CLASSES.map(c=>c.v),  multi:false},
+  ];
+
+  function countVotes(list,key,opts,multi){
+    const cnt={};
+    opts.forEach(o=>cnt[o]=0);
+    list.forEach(sub=>{
+      const val=sub[key]||'';
+      if(multi){
+        val.split(', ').filter(Boolean).forEach(v=>{if(cnt[v]!==undefined) cnt[v]++;});
+      } else {
+        if(cnt[val]!==undefined) cnt[val]++;
+      }
+    });
+    return cnt;
+  }
+
+  function buildQHtml(q,list){
+    const cnt=countVotes(list,q.key,q.opts,q.multi);
+    const total=list.length;
+    const maxCnt=Math.max(...Object.values(cnt),1);
+    const bars=q.opts.map(opt=>{
+      const c=cnt[opt]||0;
+      const pct=total>0?Math.round(c/total*100):0;
+      const barW=Math.round(c/maxCnt*100);
+      return `<div class="stat-bar-row">
+        <div class="stat-bar-label" title="${esc(opt)}">${esc(opt)}</div>
+        <div class="stat-bar-wrap"><div class="stat-bar-fill" style="width:${barW}%"></div></div>
+        <div class="stat-bar-cnt">${c}명 · ${pct}%</div>
+      </div>`;
+    }).join('');
+    return `<div class="stat-q"><div class="stat-q-label">${q.label}</div>${bars}</div>`;
+  }
+
+  // 참여 현황 카드
+  function buildParticipationHtml(mList,aList){
+    const total=mList.length+aList.length;
+    // 학부별 집계 (오전+오후 합산)
+    const deptCnt={};
+    D8.forEach(d=>deptCnt[d.v]=0);
+    [...mList,...aList].forEach(sub=>{if(sub.dept&&deptCnt[sub.dept]!==undefined) deptCnt[sub.dept]++;});
+    const maxDept=Math.max(...Object.values(deptCnt),1);
+    const deptBars=D8.map(d=>{
+      const c=deptCnt[d.v]||0;
+      const pct=total>0?Math.round(c/total*100):0;
+      const barW=Math.round(c/maxDept*100);
+      return `<div class="stat-bar-row">
+        <div class="stat-bar-label" title="${esc(d.v)}">${esc(d.v)}</div>
+        <div class="stat-bar-wrap"><div class="stat-bar-fill" style="width:${barW}%"></div></div>
+        <div class="stat-bar-cnt">${c}명 · ${pct}%</div>
+      </div>`;
+    }).join('');
+    return `<div class="stats-section">
+      <div class="stats-section-title">👥 참여 현황</div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px">
+        <div class="stat-q" style="text-align:center;padding:18px 10px">
+          <div style="font-size:28px;font-weight:900;color:var(--gd)">${total}</div>
+          <div style="font-size:12px;color:var(--g5);margin-top:4px">전체 참여</div>
+        </div>
+        <div class="stat-q" style="text-align:center;padding:18px 10px">
+          <div style="font-size:28px;font-weight:900;color:var(--gd)">${mList.length}</div>
+          <div style="font-size:12px;color:var(--g5);margin-top:4px">☀️ 오전 베팅</div>
+        </div>
+        <div class="stat-q" style="text-align:center;padding:18px 10px">
+          <div style="font-size:28px;font-weight:900;color:var(--gd)">${aList.length}</div>
+          <div style="font-size:12px;color:var(--g5);margin-top:4px">🌇 오후 베팅</div>
+        </div>
+      </div>
+      <div class="stat-q">
+        <div class="stat-q-label">🏫 학부별 참여 현황 (오전+오후 합산)</div>
+        ${deptBars}
+      </div>
+    </div>`;
+  }
+
+  const mHtml=`<div class="stats-section">
+    <div class="stats-section-title">☀️ 오전 베팅 통계 &nbsp;<span style="font-weight:400;font-size:13px;color:var(--g5)">총 ${mList.length}명 참여</span></div>
+    ${mQ.map(q=>buildQHtml(q,mList)).join('')}
+  </div>`;
+  const aHtml=`<div class="stats-section">
+    <div class="stats-section-title">🌇 오후 베팅 통계 &nbsp;<span style="font-weight:400;font-size:13px;color:var(--g5)">총 ${aList.length}명 참여</span></div>
+    ${aQ.map(q=>buildQHtml(q,aList)).join('')}
+  </div>`;
+
+  $('stats-content').innerHTML=buildParticipationHtml(mList,aList)+mHtml+aHtml;
 }
 
 /* ── 순위 렌더링 ── */
