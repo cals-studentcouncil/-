@@ -702,8 +702,8 @@ function initQ(){
   mkRadio('q-m-jokgu-gap',JOKGU_GAP,'m_jokgu_gap'  );
   mkRadio('q-m-top',      CLASSES,  'm_top'        );
   mkRadio('q-a-mission',  CLASSES,  'a_mission'    );
-  mkCheck('q-a-tail',     D7,       'a_tail',     3);
-  mkCheck('q-a-tug',      D7,       'a_tug',      3);
+  mkCheck('q-a-tail',     D8,       'a_tail',     3);
+  mkCheck('q-a-tug',      D8,       'a_tug',      3);
   mkRadio('q-a-relay',    CLASSES,  'a_relay'      );
   mkRadio('q-a-final',    CLASSES,  'a_final'      );
 }
@@ -1125,8 +1125,8 @@ function initAdminResultQ(){
   mkRadio('r-m-jokgu-gap',JOKGU_GAP,'r_m_jokgu_gap'  );
   mkRadio('r-m-top',      CLASSES,  'r_m_top'        );
   mkRadio('r-a-mission',  CLASSES,  'r_a_mission'    );
-  mkCheck('r-a-tail',     D7,       'r_a_tail',     3);
-  mkCheck('r-a-tug',      D7,       'r_a_tug',      3);
+  mkCheck('r-a-tail',     D8,       'r_a_tail',     3);
+  mkCheck('r-a-tug',      D8,       'r_a_tug',      3);
   mkRadio('r-a-relay',    CLASSES,  'r_a_relay'      );
   mkRadio('r-a-final',    CLASSES,  'r_a_final'      );
 }
@@ -1230,8 +1230,8 @@ function _buildStats(mList,aList){
   ];
   const aQ=[
     {label:'🏃 미션달리기 우승팀',    key:'미션달리기_우승',   opts:CLASSES.map(c=>c.v),  multi:false},
-    {label:'🦊 꼬리잡기 상위 3팀',   key:'꼬리잡기_상위3팀', opts:D7.map(d=>d.v),        multi:true},
-    {label:'💪 줄다리기 상위 3팀',   key:'줄다리기_상위3팀', opts:D7.map(d=>d.v),        multi:true},
+    {label:'🦊 꼬리잡기 상위 3팀',   key:'꼬리잡기_상위3팀', opts:D8.map(d=>d.v),        multi:true},
+    {label:'💪 줄다리기 상위 3팀',   key:'줄다리기_상위3팀', opts:D8.map(d=>d.v),        multi:true},
     {label:'🚀 계주 우승팀',          key:'계주_우승',         opts:CLASSES.map(c=>c.v),  multi:false},
     {label:'🏆 최종 우승팀',          key:'최종_우승팀',       opts:CLASSES.map(c=>c.v),  multi:false},
   ];
